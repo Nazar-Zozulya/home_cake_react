@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&subset=cyrillic');
+
+@font-face {
+    font-family: 'Muthea';
+    src: local("./Muthea.ttf"), url("./Muthea.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jura';
+    src: url('https://fonts.gstatic.com/s/jura/v9/9iI9QeLrxmf9eI1lIMjoVqI9nQA.woff2') format('woff2'),
+         url('https://fonts.gstatic.com/s/jura/v9/9iI9QeLrxmf9eI1lIMjoVqI9nQA.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
