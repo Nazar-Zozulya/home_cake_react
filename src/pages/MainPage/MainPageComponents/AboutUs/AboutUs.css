@@ -1,0 +1,42 @@
+.AboutUs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* background: white url(https://malenka-pekarnia.com/img/love/bg.jpg) 50% 50% no-repeat; */
+    background: white url(../../../../../public/img/aboutus.jpg) 50% 50% no-repeat;
+
+    background-size: cover;
+    background-position: center;
+    padding: 0px;
+    min-height: 125vh;
+}
+
+.aboutUsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.aboutUsTitle{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    color: #000000;
+}
+
+.aboutUsList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+    gap: 300px;
+    width: 100%;
+}

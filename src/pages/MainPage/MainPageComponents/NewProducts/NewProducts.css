@@ -1,0 +1,30 @@
+.NewProducts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    isolation: isolate;
+    width: 100%;
+    background: white url(../../../../../public/img/new.jpg) 50% 20% no-repeat;
+    background-size: cover;
+    padding-top: 40px;
+    gap: 30px;
+}
+
+.newTitle{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    text-align: center;
+    color: #0F0202;
+}
+
+.productsList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    gap: 30px;
+}

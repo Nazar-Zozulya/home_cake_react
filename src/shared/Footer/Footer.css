@@ -1,0 +1,147 @@
+.Footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 28px 10px; */
+    padding: 20px;
+    gap: 10px;
+    width: 100%;
+    background: #1B1E23;
+}
+
+.footerLogo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 249px;
+}
+
+.footerLogo img{
+    width: 100px;
+}
+
+.footerLogo p{
+    box-sizing: border-box;
+    font-family: 'Muthea';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    text-align: center;
+    color: #90444E;
+    text-shadow: 0px 0px 30px rgba(144, 68, 78, 0.4);
+}
+
+.navFootersList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    border-radius: 5px;
+}
+
+.navFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.navFooterCircle{
+    width: 10px;
+    height: 10px;
+    background: #F9C91E;
+    border-radius: 100px;
+}
+
+.navFooterText{
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    color: #90444E;
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-shadow: 0px 0px 5px rgba(255, 135, 151, 0.4), 7px 10px 8.2px rgba(0, 0, 0, 0.8);
+}
+
+.socialMediaFooterDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.socialMediaFooterTitle{
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #90444E;
+    text-shadow: 0px 0px 5px rgba(255, 135, 151, 0.4), 7px 10px 8.2px rgba(0, 0, 0, 0.8);
+}
+
+.linksDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    gap: 20px;
+}
+
+.link{
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #FFFFFF;
+    box-shadow: 0px 0px 10px #90444E;
+    border-radius: 100px;
+    cursor: pointer;
+    display: flex;
+}
+
+.link a{
+    width: 40px;
+    height: 40px;
+}
+
+.contactsFooter{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contactsFooterTitle{
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #90444E;
+    text-shadow: 0px 0px 5px rgba(255, 135, 151, 0.4), 7px 10px 8.2px rgba(0, 0, 0, 0.8);
+}
+
+.contactFooterDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.contactFooterDiv img{
+    width: 24px;
+    height: 24px;
+}
+
+.contactFooterDiv p{
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    color: #90444E;
+    text-shadow: 0px 0px 5px rgba(255, 135, 151, 0.4), 7px 10px 8.2px rgba(0, 0, 0, 0.8);
+}
