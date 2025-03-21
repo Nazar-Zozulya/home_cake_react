@@ -1,9 +1,12 @@
+import { useState } from "react"
+import { CartModal } from "../CartModal/CartModal"
 import "./Header.css"
 
 
 
 
 export function Header(){
+    const [isCartModalOpen, setIsCartModalOpen] = useState(false)
 
     return(
         <div className="Header">
@@ -16,7 +19,7 @@ export function Header(){
                 </div>
                 <div className="navigationButtons">
                     <button><p>Замовити своє</p></button>
-                    <button><p>Кошик</p></button>
+                    <button onClick={()=>setIsCartModalOpen(true)}><p>Кошик</p></button>
                 </div>
             </div>
 
@@ -42,6 +45,11 @@ export function Header(){
                     <p>+380 (63) 460 40 97</p>
                 </div>
             </div>
+
+            <CartModal
+            onClose={()=>setIsCartModalOpen(false)}
+            isModalOpen={isCartModalOpen}
+            ></CartModal>
         </div>
     )
 }

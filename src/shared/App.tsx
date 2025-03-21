@@ -1,12 +1,18 @@
+import { CartContextProvider } from "../context/CartContext";
 import { Layout } from "./Layout/Layout";
 import "./fonts/fonts.css"
-
+import { CookiesProvider } from "react-cookie";
 
 export function App(){
 
     return(
-        <div>
-            <Layout></Layout>
-        </div>
+        <CookiesProvider>
+            <CartContextProvider>
+
+                <div>
+                    <Layout></Layout>
+                </div>
+            </CartContextProvider>
+        </CookiesProvider>
     )
 }
