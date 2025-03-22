@@ -11,7 +11,7 @@ interface ICartModalProps{
 
 
 export function CartModal(props: ICartModalProps){
-    const { cartCookies, getProductById } = useCartContext()
+    const { cartCookies } = useCartContext()
 
 
     return (
@@ -28,11 +28,8 @@ export function CartModal(props: ICartModalProps){
                     </div>
                     <div className="cartModalList">
                         {cartCookies.map((pr)=>{
-                            const product = getProductById(pr.id)
-                            
-                            if(!product) return
                             return (
-                            <CartProductCard product={product} count={pr.count}></CartProductCard>
+                                <CartProductCard id={pr.id} count={pr.count}></CartProductCard>
                             )
                         })}
                     </div>
@@ -40,7 +37,7 @@ export function CartModal(props: ICartModalProps){
                         <button className="continueShopping">Продовжити покупки</button>
 
                         <div className="buyProductsDiv">
-                            <p className="sumPrice">1111</p>
+                            {/* <p className="sumPrice">{totalSum}</p> */}
                             <button className="buyFromCartButton">Замовити</button>                        
                         </div>
                     </div>

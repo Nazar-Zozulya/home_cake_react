@@ -2,9 +2,10 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 import { IProduct } from "../shared/types/types";
 import { useCookies } from "react-cookie";
 import { useProducts } from "../hooks/useProducts";
+import { useProductById } from "../hooks/useProductById";
 
 
-interface IProductInCart{
+export interface IProductInCart{
     id: number;
     count: number;
 }
@@ -15,7 +16,11 @@ interface ICartContext{
     addToCart: (id: number) => void;
     deleteFromCart: (id: number) => void;
     isInCart: (id:number) => boolean;
-    getProductById: (id:number) => IProduct | undefined;
+    // getProductById: (id:number) => IProduct | undefined;
+    incrementCount: (id: number) => void;
+    disincrementCount: (id: number) => void;
+    clearCart: () => void,
+    totalSum: number
 }
 
 
@@ -24,7 +29,11 @@ const initialValue: ICartContext = {
     isInCart: (id: number) => false,
     addToCart: (id: number) => {},
     deleteFromCart: (id: number) => {},
-    getProductById: (id: number) => undefined,
+    // getProductById: (id: number) => undefined,
+    incrementCount: (id: number) => {},
+    disincrementCount: (id: number) => {},
+    clearCart: () => {},
+    totalSum: 0,
 };
 
 
@@ -55,17 +64,18 @@ export function CartContextProvider(props: ICartContextPriverProps){
 
     const [cartCookies, setCartCookies] = useState<IProductInCart[]>([])
 
-    const {products, isLoading, error} = useProducts()
+    const [cartProducts, setCartProducts] = useState<IProduct[]>([])
 
+    const [totalSum, setTotalSum] = useState<number>(0)
+
+    
     // const [products, setProducts] = useState<IProduct[]>([])
+    
+    // function getProductById(id: number){
+    //     const product = 1
 
-    function getProductById(id: number){
-        if( !products ) return 
-
-        const result = products.find( (product) => product.id === id )
-
-        return result
-    }
+    //     return product
+    // }
 
     function addToCart(id: number){
         let array = [...cartCookies, {id: id, count: 1}];
@@ -86,6 +96,47 @@ export function CartContextProvider(props: ICartContextPriverProps){
         return result
     }
 
+    function incrementCount(id: number){
+        setCartCookies((prevCookies) =>
+            prevCookies.map((product) =>
+              product.id === id
+                ? { ...product, count: product.count + 1 }
+                : product
+            )
+          )
+    }
+
+    function disincrementCount(id: number){
+        setCartCookies((prevCookies) =>
+            prevCookies
+            .map((product) =>
+                product.id === id
+                  ? { ...product, count: product.count - 1 }
+                  : product
+              )
+            .filter((product) => product.count > 0)
+        )
+    }
+
+    // function totalPriceFunc() {
+    //     // const allPrices = cartCookies.map((prod)=>{
+    //     //     const product = getProductById(prod.id)
+    //     //     if(!product) return
+    //     //     return product.price
+    //     // })
+
+
+    //     // const sumPrice = allPrices.reduce(
+    //         // (accumulator, currentValue) => accumulator + currentValue,
+    //         // totalSum,
+    //     // );
+    //     return 1
+    // }
+
+    function clearCart(){
+        setCartCookies([])
+    }
+
     useEffect(()=>{
         const cartInLocal = localStorage.getItem('cart')
 
@@ -94,11 +145,15 @@ export function CartContextProvider(props: ICartContextPriverProps){
         const parsedData = JSON.parse(cartInLocal)
 
         setCartCookies(parsedData)
-    }, [])
 
+        // console.log(caCookies)
+        
+    }, [])
+    
     useEffect(()=>{
         localStorage.setItem('cart', JSON.stringify(cartCookies))
-        console.log(cartCookies)
+
+        // totalPriceFunc()
     }, [cartCookies])
 
     return(
@@ -108,7 +163,11 @@ export function CartContextProvider(props: ICartContextPriverProps){
             isInCart: isInCart,
             deleteFromCart: deleteFromCart,
             addToCart: addToCart,
-            getProductById: getProductById,
+            // getProductById: getProductById,
+            incrementCount: incrementCount,
+            disincrementCount: disincrementCount,
+            clearCart: clearCart,
+            totalSum: totalSum,
         }}>
             {props.children}
         </CartContext.Provider>

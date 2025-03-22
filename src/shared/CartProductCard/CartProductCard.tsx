@@ -1,31 +1,34 @@
+import { IProductInCart, useCartContext } from "../../context/CartContext";
+import { useProductById } from "../../hooks/useProductById";
 import { IProduct } from "../types/types";
 import "./CartProductCard.css"
 
-interface ICartProductCardProps{
-    product: IProduct;
-    count: number;
-}
 
 
+export function CartProductCard(props: IProductInCart){
+    const { incrementCount, disincrementCount } = useCartContext()
 
-export function CartProductCard(props: ICartProductCardProps){
+    const { product, isLoading, error } = useProductById(props.id)
+
+    if(!product) return 
+
     return (
         <div className="CartProductCard">
-            <img src={`http://localhost:8000${props.product.image}`} alt="" className="cartProductImg" />
+            <img src={`http://localhost:8000${product.image}`} alt="" className="cartProductImg" />
             <div className="cartProductOthers">
                 <div className="cartProductInfo">
-                    <p className="cartProductName">{props.product.name}</p>
-                    <p className="cartProductComposition">{props.product.composition}</p>
+                    <p className="cartProductName">{product.name}</p>
+                    <p className="cartProductComposition">{product.composition}</p>
                 </div>
                 <div className="cartProductLogic">
                     <div className="cartProductCountDiv">
-                        <button>-</button>
+                        <button onClick={()=>disincrementCount(product.id)}>-</button>
                         <div className="productCount">
                             <p>{props.count}</p>
                         </div>
-                        <button>+</button>
+                        <button onClick={()=> incrementCount(product.id)}>+</button>
                     </div>
-                    <p className="cartProductPrice">{props.product.price}</p>
+                    <p className="cartProductPrice">{product.price}</p>
                 </div>
             </div>
         </div>
