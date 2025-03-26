@@ -27,17 +27,17 @@ export function CartModal(props: ICartModalProps){
                         <button className="closeModalButton" onClick={()=>{props.onClose()}}>X</button>
                     </div>
                     <div className="cartModalList">
-                        {cartCookies.map((pr)=>{
+                        {cartCookies.map((product)=>{
                             return (
-                                <CartProductCard id={pr.id} count={pr.count}></CartProductCard>
+                                <CartProductCard key={product.id} id={product.id} count={product.count}></CartProductCard>
                             )
                         })}
                     </div>
                     <div className="cartModalFooter">
-                        <button className="continueShopping">Продовжити покупки</button>
+                        <button className="continueShopping" onClick={()=>{props.onClose()}}>Продовжити покупки</button>
 
                         <div className="buyProductsDiv">
-                            {/* <p className="sumPrice">{totalSum}</p> */}
+                            <p className="sumPrice">110000</p>
                             <button className="buyFromCartButton">Замовити</button>                        
                         </div>
                     </div>

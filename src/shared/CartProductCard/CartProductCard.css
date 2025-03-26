@@ -73,9 +73,25 @@
     font-weight: 700;
     font-size: 20px;
     text-align: center;
-    color: #3E77AA;
+    /* color: #3E77AA; */
     border: none;
     cursor: pointer;
+}
+
+.Minus{
+    color: #999897;
+}
+
+.Minus:hover{
+    color: #b8b8b8;
+}
+
+.Plus{
+    color: #3E77AA;
+}
+
+.Plus:hover{
+    color: #5d96c9;
 }
 
 .productCount{

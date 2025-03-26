@@ -45,6 +45,11 @@
     color: #6E6E6E;
     border: none;
     background: none;
+    transition: 0.3s;
+}
+
+.closeModalButton:hover{
+    color: #FF8B8B;
 }
 
 .cartModalList{
@@ -89,6 +94,11 @@
     cursor: pointer;
 }
 
+.continueShopping:hover{
+    color: #4096E3;
+    background: linear-gradient(168.5deg, #dddcdc -18%, #cfcece 136.97%);
+}
+
 .buyProductsDiv{
     display: flex;
     flex-direction: row;
@@ -127,4 +137,8 @@
     width: 180px;
     height: 50px;
     cursor: pointer;
+}
+
+.buyFromCartButton:hover{
+    background: linear-gradient(178.24deg, #FFE8C7 -28.71%, #FFC67B 125.21%);
 }

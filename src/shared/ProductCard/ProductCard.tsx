@@ -10,7 +10,7 @@ export function ProductCard(props: IProduct){
 
     return(
         <div className="ProductCart">
-            <img src={`http://localhost:8000${props.image}`} alt="" className="productImg" />
+            <img src={props.image} alt="" className="productImg" />
             <div className="productMainInfo">
                 <p className="productName">{props.name}</p>
                 <p className="productPrice">{props.price}</p>

@@ -1,5 +1,5 @@
 import "./Footer.css"
-
+import { Link } from "react-scroll";
 
 
 export function Footer(){
@@ -15,19 +15,27 @@ export function Footer(){
             <div className="navFootersList">
                 <div className="navFooter">
                     <div className="navFooterCircle"></div>
-                    <button className="navFooterText">Головна</button>
+                    <Link to="Header" smooth={true}>
+                        <button className="navFooterText">Головна</button>
+                    </Link>
                 </div>
                 <div className="navFooter">
                     <div className="navFooterCircle"></div>
-                    <button className="navFooterText">Новинки</button>
+                    <Link to="NewProducts" smooth={true}>
+                        <button className="navFooterText">Новинки</button>
+                    </Link>
                 </div>
                 <div className="navFooter">
                     <div className="navFooterCircle"></div>
-                    <button className="navFooterText">Про нас</button>
+                    <Link to="AboutUs" smooth={true}>
+                        <button className="navFooterText">Про нас</button>
+                    </Link>
                 </div>
                 <div className="navFooter">
                     <div className="navFooterCircle"></div>
-                    <button className="navFooterText">Асортимент</button>
+                    <Link to="Assortment" smooth={true}>
+                        <button className="navFooterText">Асортимент</button>
+                    </Link>
                 </div>
             </div>
 
@@ -49,11 +57,11 @@ export function Footer(){
             <div className="contactsFooter">
                 <p className="contactsFooterTitle">Наші контакти</p>
                 <div className="contactFooterDiv">
-                    <img src="" alt="" />
+                    <img src="./img/telephone.png" alt="" />
                     <p>+380 999999999</p>
                 </div>
                 <div className="contactFooterDiv">
-                    <img src="" alt="" />
+                    <img src="./img/mail.png" alt="" />
                     <p>home_cake@gmail.con</p>
                 </div>
             </div>

@@ -10,11 +10,21 @@ export function CartProductCard(props: IProductInCart){
 
     const { product, isLoading, error } = useProductById(props.id)
 
-    if(!product) return 
+    if (isLoading) {
+        return <div>Loading...</div>; // Можно вернуть индикатор загрузки
+    }
+
+    if (error) {
+        return <div>Error loading product</div>; // Обработка ошибки
+    }
+
+    if (!product) {
+        return null; // Возвращаем null, если нет данных
+    }
 
     return (
         <div className="CartProductCard">
-            <img src={`http://localhost:8000${product.image}`} alt="" className="cartProductImg" />
+            <img src={product.image} alt="" className="cartProductImg" />
             <div className="cartProductOthers">
                 <div className="cartProductInfo">
                     <p className="cartProductName">{product.name}</p>
@@ -22,15 +32,15 @@ export function CartProductCard(props: IProductInCart){
                 </div>
                 <div className="cartProductLogic">
                     <div className="cartProductCountDiv">
-                        <button onClick={()=>disincrementCount(product.id)}>-</button>
+                        <button onClick={() => disincrementCount(product.id)} className="Minus">-</button>
                         <div className="productCount">
                             <p>{props.count}</p>
                         </div>
-                        <button onClick={()=> incrementCount(product.id)}>+</button>
+                        <button onClick={() => incrementCount(product.id)} className="Plus">+</button>
                     </div>
                     <p className="cartProductPrice">{product.price}</p>
                 </div>
             </div>
         </div>
-    )
+    );
 }

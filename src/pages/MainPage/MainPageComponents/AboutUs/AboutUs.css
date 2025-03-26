@@ -32,11 +32,13 @@
 
 .aboutUsList{
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    align-content: space-between;
-    gap: 300px;
+    align-items: space-between;
+    /* align-content: space-between; */
+    padding: 50px;
+    gap: 320px;
     width: 100%;
+    position: relative;
 }
