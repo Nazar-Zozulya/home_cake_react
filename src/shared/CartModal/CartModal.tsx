@@ -19,7 +19,7 @@ export function CartModal(props: ICartModalProps){
         { props.isModalOpen === false ? 
         undefined
         :
-        <Modal>
+        <Modal isOpen={props.isModalOpen}>
             <div className="CartModal">
                 <div className="cartModal">
                     <div className="cartModalHeader">

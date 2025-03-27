@@ -23,7 +23,7 @@ export function NewProducts(){
                 !error ?
                 (      
                     <ProductsSlider>
-                        {products?.map((product)=>{
+                        {products?.slice(-3).map((product)=>{
                             return <ProductCard key={product.id} id={product.id} image={product.image} name={product.name} price={product.price} composition={product.composition} weight={product.weight} kilocalories={product.kilocalories} ></ProductCard>
                         })}
                     </ProductsSlider>

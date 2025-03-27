@@ -13,12 +13,13 @@ export function ProductsSlider(props: IProductsSliderProps){
     const settings = {
         arrows: false,
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
         adaptiveHeight: true,
-        centerMode: true, // Включаем центрирование
+        easing: "ease",
+        // centerMode: true, // Включаем центрирование
         centerPadding: "0px", // Убираем отступы, чтобы карточки были в центре
         responsive: [
             {
