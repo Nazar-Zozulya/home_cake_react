@@ -1,0 +1,41 @@
+.slider-container {
+    width: 100%;
+    max-width: 200vh;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 30px;
+}
+
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.slick-slide div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slick-track {
+    display: flex !important;
+    justify-content: center;
+    align-items: center ;
+}
+
+.slick-dots {
+    /* bottom: -25px; */
+    margin-top: 25px;
+}
+
+.slick-dots li button:before {
+    color: #727272;
+    font-size: 12px;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #F9C91E;
+    font-size: 20px;
+}
