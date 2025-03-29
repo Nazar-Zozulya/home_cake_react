@@ -11,7 +11,7 @@ export function useProductById(id: number) {
             if (!id) return; // Проверяем, что id существует
             try {
                 setIsLoading(true);
-                const response = await fetch(`http://localhost:8000/api/product/${id}`);
+                const response = await fetch(`https://shmyk.pythonanywhere.com/api/product/${id}`);
                 if (!response.ok) throw new Error("Failed to fetch product");
                 
                 const result = await response.json();

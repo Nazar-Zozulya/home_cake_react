@@ -1,10 +1,14 @@
 .slider-container {
     width: 100%;
-    max-width: 200vh;
+    max-width: 180vh;
     margin: 0 auto;
     padding: 20px;
     gap: 30px;
 }
+
+/* .slick-slider{
+    position: relative;
+} */
 
 .slick-slide {
     display: flex;

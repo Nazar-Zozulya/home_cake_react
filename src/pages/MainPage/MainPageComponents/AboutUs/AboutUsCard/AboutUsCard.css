@@ -17,6 +17,9 @@
     /* height: calc(auto + 4500); */
     background: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
+    margin: -40px 0px;
+    padding: 20px 20px 50px;
+
 }
 
 .aboutUsCardTitle{
@@ -38,7 +41,7 @@
 }
 
 .aboutUsCardImg{
-    position: absolute;
+    /* position: absolute; */
     width: 90px;
     height: 90px;
 }

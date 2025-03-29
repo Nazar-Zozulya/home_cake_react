@@ -14,7 +14,7 @@ export function useProducts(){
         async function getProducts() {
             try {
                 setIsLoading(true)
-                const response = await fetch('http://localhost:8000/api/product/all',{
+                const response = await fetch('https://shmyk.pythonanywhere.com/api/product/all',{
                     method: 'GET',
                     credentials: 'include', // Важная часть!
                   })
