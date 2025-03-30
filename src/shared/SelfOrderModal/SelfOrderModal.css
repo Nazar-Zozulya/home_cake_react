@@ -1,0 +1,81 @@
+.SelfOrderModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 800px;
+    background: #FFFFFF;
+    border-radius: 25px;
+}
+
+.selfOrderModalHeader{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    padding: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.selfOrderModalHeader p{
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+}
+
+.selfOrderFormDiv{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    gap: 40px;
+    width: 800px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.selfOrderFormHelpDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 15px;
+    gap: 15px;
+    width: 800px;
+}
+
+.selfOrderInput{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0px;
+    width: 370px;
+    background: #FFFFFF;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    text-align: start;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.fullInput{
+    width: 760px;
+}
+
+.selfOrderModalLinksDiv{
+    width: 800px;
+    display: flex;
+    justify-content: center;
+}

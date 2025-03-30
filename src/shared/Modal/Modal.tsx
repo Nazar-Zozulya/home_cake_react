@@ -13,8 +13,6 @@ export function Modal(props: IModalProps){
     const modalRef = useRef<HTMLDivElement | null>(null)
 
     function handleCoverClick(event: MouseEvent){
-        console.log(modalRef)
-
         if(modalRef.current === event.target){
             props.onClose()
         }

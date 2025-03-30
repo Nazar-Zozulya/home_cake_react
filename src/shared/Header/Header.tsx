@@ -2,11 +2,16 @@ import { useState } from "react"
 import { CartModal } from "../CartModal/CartModal"
 import "./Header.css"
 import { Link, Element } from "react-scroll";
+import { SelfOrderModal } from "../SelfOrderModal/SelfOrderModal";
+import { LinksDiv } from "../LinksDiv/LinksDiv";
+import { VerifyEmailModal } from "../VerifyEmailModal/VerifyEmailModal";
 
 
 
 export function Header(){
     const [isCartModalOpen, setIsCartModalOpen] = useState(false)
+    const [isSelfOrderModalOpen, setIsSelfOrderModalOpen] = useState(false)
+    const [isVerifyEmailModalOpen, setIsVerifyEmailModalOpen] = useState(false)
 
     return(
             <Element className="Header" name="Header">
@@ -26,7 +31,7 @@ export function Header(){
                         </Link>
                     </div>
                     <div className="navigationButtons">
-                        <button><p>Замовити своє</p></button>
+                        <button onClick={()=>setIsSelfOrderModalOpen(true)}><p>Замовити своє</p></button>
                         <button onClick={()=>setIsCartModalOpen(true)}><p>Кошик</p></button>
                     </div>
                 </div>
@@ -36,17 +41,7 @@ export function Header(){
                         <img src="/img/logo.png" alt="" />
                         <p>Home Cake</p>
                     </div>
-                    <div className="linksDiv">
-                        <div className="link">
-                            <a href="https://www.youtube.com/watch?v=wpHU1njD1IE&ab_channel=%D0%9F%D0%BE%D0%B7%D0%B7%D0%B8"></a>
-                        </div>
-                        <div className="link">
-                            <a href="https://www.youtube.com/watch?v=wpHU1njD1IE&ab_channel=%D0%9F%D0%BE%D0%B7%D0%B7%D0%B8"></a>
-                        </div>
-                        <div className="link">
-                            <a href="https://www.youtube.com/watch?v=wpHU1njD1IE&ab_channel=%D0%9F%D0%BE%D0%B7%D0%B7%D0%B8"></a>
-                        </div>
-                    </div>
+                    <LinksDiv></LinksDiv>
                     <div className="infoDiv">
                         <p>HOME.CAKE.DP</p>
                         <p>IRA KUSH</p>
@@ -57,7 +52,19 @@ export function Header(){
                 <CartModal
                 onClose={()=>setIsCartModalOpen(false)}
                 isModalOpen={isCartModalOpen}
-                ></CartModal>
+                />
+
+
+                <SelfOrderModal 
+                onClose={()=>{setIsSelfOrderModalOpen(false)}}
+                isModalOpen={isSelfOrderModalOpen}
+                switchModal={()=>{setIsSelfOrderModalOpen(false); setIsVerifyEmailModalOpen(true)}}
+                />
+
+                <VerifyEmailModal
+                onClose={()=>setIsVerifyEmailModalOpen(false)}
+                isModalOpen={isVerifyEmailModalOpen}
+                />
             </Element>
     )
 }

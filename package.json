@@ -15,6 +15,7 @@
     "react": "^19.0.0",
     "react-cookie": "^8.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.55.0",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.9.3",
     "react-slick": "^0.30.3",

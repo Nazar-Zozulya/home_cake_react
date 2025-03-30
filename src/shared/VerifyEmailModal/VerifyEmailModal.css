@@ -1,0 +1,64 @@
+.VerifyEmailModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px 42px;
+    gap: 72px;
+    width: 770px;
+    background: #FFFFFF;
+    border-radius: 25px;
+}
+
+.verifyEmailModalHeader{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 770px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.verifyEmailModalHeader p{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+    color: #0F0202;
+}
+
+.verifyEmailModalTextDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 770px;
+}
+
+.verifyEmailModalTextMain{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+    color: #0F0202;
+}
+
+.verifyEmailModalTextSecond{
+    width: 768px;
+    height: 24px;
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: rgba(15, 2, 2, 0.5);
+}
+
+.buyFromCartButton{
+    width: 300px;
+}
