@@ -34,16 +34,10 @@ export function SelfOrderModal(props: ISelfOrderModalProps){
                 credentials: "include", // Включаем куки (если нужно)
                 body: JSON.stringify(data),
             });
-
-            if (!response.ok) {
-                throw new Error("Ошибка при отправке формы");
-            }
-
-            const result = await response.json();
-            console.log("Успех:", result);
             props.switchModal();
         } catch (error) {
-            console.error("Ошибка:", error);
+            // console.log('bezdyar')
+            console.log(error);
         }
     }
       
