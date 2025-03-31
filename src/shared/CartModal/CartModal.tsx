@@ -11,7 +11,7 @@ interface ICartModalProps{
 
 
 export function CartModal(props: ICartModalProps){
-    const { cartCookies } = useCartContext()
+    const { cartCookies, totalSum } = useCartContext()
 
 
     return (
@@ -37,7 +37,7 @@ export function CartModal(props: ICartModalProps){
                         <button className="continueShopping" onClick={()=>{props.onClose()}}>Продовжити покупки</button>
 
                         <div className="buyProductsDiv">
-                            <p className="sumPrice">110000</p>
+                            <p className="sumPrice">{totalSum}</p>
                             <button className="buyFromCartButton">Замовити</button>                        
                         </div>
                     </div>

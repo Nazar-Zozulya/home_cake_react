@@ -28,7 +28,7 @@ export function VerifyEmailModal(props: iVerifyEmailModalProps){
                     <p className="verifyEmailModalTextSecond">Це потрібно для уникнення ботів</p>
                 </div>
 
-                <button className="buyFromCartButton" type="submit">Підтвердити пошту</button>                        
+                <button className="buyFromCartButton verifyEmailButton" type="submit">Підтвердити пошту</button>                        
             </div>
         </Modal>
         }

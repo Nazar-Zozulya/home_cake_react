@@ -38,7 +38,7 @@ export function CartProductCard(props: IProductInCart){
                         </div>
                         <button onClick={() => incrementCount(product.id)} className="Plus">+</button>
                     </div>
-                    <p className="cartProductPrice">{product.price}</p>
+                    <p className="cartProductPrice">{product.price*props.count}</p>
                 </div>
             </div>
         </div>

@@ -1,175 +1,124 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { IProduct } from "../shared/types/types";
-import { useCookies } from "react-cookie";
-import { useProducts } from "../hooks/useProducts";
 import { useProductById } from "../hooks/useProductById";
 
-
-export interface IProductInCart{
-    id: number;
-    count: number;
+export interface IProductInCart {
+  id: number;
+  count: number;
 }
 
-interface ICartContext{
-    cartCookies: IProductInCart[];
-    // products: IProduct[];
-    addToCart: (id: number) => void;
-    deleteFromCart: (id: number) => void;
-    isInCart: (id:number) => boolean;
-    // getProductById: (id:number) => IProduct | undefined;
-    incrementCount: (id: number) => void;
-    disincrementCount: (id: number) => void;
-    clearCart: () => void,
-    totalSum: number
+interface ICartContext {
+  cartCookies: IProductInCart[];
+  addToCart: (id: number) => void;
+  deleteFromCart: (id: number) => void;
+  isInCart: (id: number) => boolean;
+  incrementCount: (id: number) => void;
+  disincrementCount: (id: number) => void;
+  clearCart: () => void;
+  totalSum: number;
 }
-
 
 const initialValue: ICartContext = {
-    cartCookies: [],
-    isInCart: (id: number) => false,
-    addToCart: (id: number) => {},
-    deleteFromCart: (id: number) => {},
-    // getProductById: (id: number) => undefined,
-    incrementCount: (id: number) => {},
-    disincrementCount: (id: number) => {},
-    clearCart: () => {},
-    totalSum: 0,
+  cartCookies: [],
+  isInCart: () => false,
+  addToCart: () => {},
+  deleteFromCart: () => {},
+  incrementCount: () => {},
+  disincrementCount: () => {},
+  clearCart: () => {},
+  totalSum: 0,
 };
 
+const CartContext = createContext<ICartContext>(initialValue);
 
-const CartContext = createContext<ICartContext>(initialValue)
-
-export function useCartContext(){
-    return useContext(CartContext)
+export function useCartContext(): ICartContext {
+  return useContext(CartContext);
 }
 
-interface ICartContextPriverProps {
-    children: ReactNode;  
+interface ICartContextProviderProps {
+  children: ReactNode;
 }
 
-// сделать обьект где ключ ето id а значение количество
-// [
-    // {
-    //     id: 1,
-    //     count: 1,
-    // }
-// ]
-// функция add to cart принимает id и добавляет в массив состояния новый обьект с свойствами id, count = 1
-// функция incerease product count принимает id ищет из массива состояния нужный обьект и меняет ему айди на +1
-// {
-//     1: 10
-// }
+export function CartContextProvider({ children }: ICartContextProviderProps) {
+  const [cartCookies, setCartCookies] = useState<IProductInCart[]>([]);
+  const [totalSum, setTotalSum] = useState<number>(0);
 
-export function CartContextProvider(props: ICartContextPriverProps){
+  function addToCart(id: number): void {
+    setCartCookies((prev) => [...prev, { id, count: 1 }]);
+  }
 
-    const [cartCookies, setCartCookies] = useState<IProductInCart[]>([])
+  function deleteFromCart(id: number): void {
+    setCartCookies((prev) => prev.filter((product) => product.id !== id));
+  }
 
-    const [cartProducts, setCartProducts] = useState<IProduct[]>([])
+  function isInCart(id: number): boolean {
+    return cartCookies.some((product) => product.id === id);
+  }
 
-    const [totalSum, setTotalSum] = useState<number>(0)
+  function incrementCount(id: number): void {
+    setCartCookies((prev) =>
+      prev.map((product) =>
+        product.id === id ? { ...product, count: product.count + 1 } : product
+      )
+    );
+  }
 
-    
-    // const [products, setProducts] = useState<IProduct[]>([])
-    
-    // function getProductById(id: number){
-    //     const product = 1
-
-    //     return product
-    // }
-
-    function addToCart(id: number){
-        let array = [...cartCookies, {id: id, count: 1}];
-        setCartCookies(array)
-    }
-
-    function deleteFromCart(id: number){
-        const filterProducts = cartCookies.filter((product)=>{
-            return product.id !== id
-        })
-        setCartCookies(filterProducts)
-    }
-
-    function isInCart(id: number){
-        const result = cartCookies.some((product)=>{
-            return product.id === id 
-        });
-        return result
-    }
-
-    function incrementCount(id: number){
-        setCartCookies((prevCookies) =>
-            prevCookies.map((product) =>
-              product.id === id
-                ? { ...product, count: product.count + 1 }
-                : product
-            )
-          )
-    }
-
-    function disincrementCount(id: number){
-        setCartCookies((prevCookies) =>
-            prevCookies
-            .map((product) =>
-                product.id === id
-                  ? { ...product, count: product.count - 1 }
-                  : product
-              )
-            .filter((product) => product.count > 0)
+  function disincrementCount(id: number): void {
+    setCartCookies((prev) =>
+      prev
+        .map((product) =>
+          product.id === id ? { ...product, count: product.count - 1 } : product
         )
+        .filter((product) => product.count > 0)
+    );
+  }
+
+  function clearCart(): void {
+    setCartCookies([]);
+  }
+
+  useEffect(() => {
+    async function calculateTotal() {
+      let sum = 0;
+      const productPromises = cartCookies.map((item) =>
+        fetch(`https://shmyk.pythonanywhere.com/api/product/${item.id}`).then((res) => res.json())
+      );
+  
+      try {
+        const products = await Promise.all(productPromises);
+  
+        sum = cartCookies.reduce((acc, item) => {
+          const product = products.find((p) => p.id === item.id);
+          return product ? acc + product.price * item.count : acc;
+        }, 0);
+  
+        setTotalSum(sum);
+      } catch (error) {
+        console.error("Ошибка загрузки продуктов:", error);
+      }
     }
-
-    // function totalPriceFunc() {
-    //     // const allPrices = cartCookies.map((prod)=>{
-    //     //     const product = getProductById(prod.id)
-    //     //     if(!product) return
-    //     //     return product.price
-    //     // })
-
-
-    //     // const sumPrice = allPrices.reduce(
-    //         // (accumulator, currentValue) => accumulator + currentValue,
-    //         // totalSum,
-    //     // );
-    //     return 1
-    // }
-
-    function clearCart(){
-        setCartCookies([])
+  
+    if (cartCookies.length > 0) {
+      calculateTotal();
+    } else {
+      setTotalSum(0);
     }
-
-    useEffect(()=>{
-        const cartInLocal = localStorage.getItem('cart')
-
-        if(!cartInLocal) return
-
-        const parsedData = JSON.parse(cartInLocal)
-
-        setCartCookies(parsedData)
-
-        // console.log(caCookies)
-        
-    }, [])
-    
-    useEffect(()=>{
-        localStorage.setItem('cart', JSON.stringify(cartCookies))
-
-        // totalPriceFunc()
-    }, [cartCookies])
-
-    return(
-        <CartContext.Provider
-        value={{
-            cartCookies: cartCookies,
-            isInCart: isInCart,
-            deleteFromCart: deleteFromCart,
-            addToCart: addToCart,
-            // getProductById: getProductById,
-            incrementCount: incrementCount,
-            disincrementCount: disincrementCount,
-            clearCart: clearCart,
-            totalSum: totalSum,
-        }}>
-            {props.children}
-        </CartContext.Provider>
-    )
+  }, [cartCookies]);
+  
+  return (
+    <CartContext.Provider
+      value={{
+        cartCookies,
+        isInCart,
+        deleteFromCart,
+        addToCart,
+        incrementCount,
+        disincrementCount,
+        clearCart,
+        totalSum,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
 }

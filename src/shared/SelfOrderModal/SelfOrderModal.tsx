@@ -2,6 +2,7 @@ import { Modal } from "../Modal/Modal";
 import { useForm } from "react-hook-form"
 import "./SelfOrderModal.css"
 import { LinksDiv } from "../LinksDiv/LinksDiv";
+import { useEffect, useState } from "react";
 
 
 interface ISelfOrderModalProps{
@@ -23,11 +24,30 @@ export function SelfOrderModal(props: ISelfOrderModalProps){
         mode: 'onSubmit'
     })
 
-    function onSubmit(){
-        // console.log(1)
-        fetch('https://shmyk.pythonanywhere.com/send/test')
-        props.switchModal()
+    async function onSubmit(data: ISelfOrderModalForm) {
+        try {
+            const response = await fetch("https://shmyk.pythonanywhere.com/send/test", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                credentials: "include", // Включаем куки (если нужно)
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error("Ошибка при отправке формы");
+            }
+
+            const result = await response.json();
+            console.log("Успех:", result);
+            props.switchModal();
+        } catch (error) {
+            console.error("Ошибка:", error);
+        }
     }
+      
+      
 
 
     return(
