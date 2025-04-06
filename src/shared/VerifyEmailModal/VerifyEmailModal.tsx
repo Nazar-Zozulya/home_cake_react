@@ -16,7 +16,7 @@ export function VerifyEmailModal(props: iVerifyEmailModalProps){
         { props.isModalOpen === false ?
         undefined 
         :
-        <Modal isOpen={props.isModalOpen} onClose={()=>props.onClose}>
+        <Modal isOpen={props.isModalOpen} onClose={()=>props.onClose()}>
             <div className="VerifyEmailModal">
                 <div className="verifyEmailModalHeader">
                     <p>Підтвердіть пошту</p>
