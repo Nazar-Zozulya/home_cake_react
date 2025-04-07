@@ -1,20 +1,22 @@
 import { useState } from "react"
 import { CartModal } from "../CartModal/CartModal"
-import "./Header.css"
+import "./FullHeader.css"
 import { Link, Element } from "react-scroll";
 import { SelfOrderModal } from "../SelfOrderModal/SelfOrderModal";
 import { LinksDiv } from "../LinksDiv/LinksDiv";
 import { VerifyEmailModal } from "../VerifyEmailModal/VerifyEmailModal";
+import { OrderModal } from "../OrderModal/OrderModal";
 
 
 
-export function Header(){
+export function FullHeader(){
     const [isCartModalOpen, setIsCartModalOpen] = useState(false)
     const [isSelfOrderModalOpen, setIsSelfOrderModalOpen] = useState(false)
     const [isVerifyEmailModalOpen, setIsVerifyEmailModalOpen] = useState(false)
+    const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
 
     return(
-            <Element className="Header" name="Header">
+            <Element className="FullHeader" name="Header">
                 <div className="navigationDiv">
                     <div className="navigationButtons">
                         <Link to="Header" smooth={true}>
@@ -52,6 +54,7 @@ export function Header(){
                 <CartModal
                 onClose={()=>setIsCartModalOpen(false)}
                 isModalOpen={isCartModalOpen}
+                switchModal={()=>{setIsCartModalOpen(false); setIsOrderModalOpen(true)}}
                 />
 
 
@@ -64,6 +67,12 @@ export function Header(){
                 <VerifyEmailModal
                 onClose={()=>setIsVerifyEmailModalOpen(false)}
                 isModalOpen={isVerifyEmailModalOpen}
+                />
+
+                <OrderModal
+                onClose={()=>setIsOrderModalOpen(false)}
+                isModalOpen={isOrderModalOpen}
+                switchModal={()=>{setIsOrderModalOpen(false); setIsVerifyEmailModalOpen(true)}}
                 />
             </Element>
     )

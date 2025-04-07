@@ -1,0 +1,34 @@
+.CatalogPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0px;
+    gap: 8px;
+    width: 100%;
+    /* height: 1942px; */
+}
+
+.catalogTitle{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    text-align: center;
+    color: #0F0202;
+}
+
+.allProductsListWrapper{
+    display: flex;
+    justify-content: center; /* Центрирует .assortmentList */
+    width: 100%;
+}
+
+.allProductsList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 10px;
+    gap: 40px;
+    width: fit-content;
+    max-width: 1150px;
+}

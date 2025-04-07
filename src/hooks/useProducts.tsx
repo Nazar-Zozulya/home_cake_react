@@ -10,27 +10,28 @@ export function useProducts(){
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState<string>()
 
-    useEffect(()=>{
-        async function getProducts() {
-            try {
-                setIsLoading(true)
-                const response = await fetch('https://shmyk.pythonanywhere.com/api/product/all',{
-                    method: 'GET',
-                    credentials: 'include', // Важная часть!
-                  })
-                const result = await response.json()
-                setProducts(result)
-            }
-            catch (error) {
-                const err = error instanceof Error ? error.message : undefined
-                setError(`${err}`)
-            }
-            finally {
-                setIsLoading(false)
-            }
+    async function getProducts() {
+        try {
+            setIsLoading(true)
+            const response = await fetch('https://shmyk.pythonanywhere.com/api/product/all',{
+                method: 'GET',
+                credentials: 'include', // Важная часть!
+              })
+            const result = await response.json()
+            setProducts(result)
         }
+        catch (error) {
+            const err = error instanceof Error ? error.message : undefined
+            setError(`${err}`)
+        }
+        finally {
+            setIsLoading(false)
+        }
+    }
+
+    useEffect(()=>{
         getProducts()
     }, [])
 
-    return {products: products, isLoading: isLoading, error: error}
+    return {products, isLoading, error, refetch: getProducts}
 }

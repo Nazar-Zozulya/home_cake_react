@@ -1,0 +1,137 @@
+.ProductPage{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    width: 100%;
+}
+
+.productPageDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+}
+
+.productPageName{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    text-align: center;
+    color: #0F0202;
+}
+
+.productPageInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+}
+
+.productPageAllImages{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+}
+
+.productPageImg{
+    box-sizing: border-box;
+    width: 390px;
+    height: 390px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+.productPageOtherImages{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.productPageSmallImage{
+    box-sizing: border-box;
+    width: 90px;
+    height: 90px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.productPageAllTextInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+}
+
+.productPageFirstTextInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+}
+
+.productPageFirstTextInfoTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+}
+
+.productPageTitleInfo{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    color: #5C5C5C;
+}
+
+.productPageFirstTextInfoValues{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+}
+
+.productPageValueInfo{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    color: #0F0202;
+}
+
+.productPageSecondTextInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 5px;
+}
+
+.productPageCompositionTitle{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    color: #5C5C5C;
+}
+
+.productPageCompostion{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    color: #0F0202;
+}

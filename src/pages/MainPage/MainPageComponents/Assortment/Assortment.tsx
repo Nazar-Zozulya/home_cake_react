@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useProducts } from "../../../../hooks/useProducts";
 import { ProductCard } from "../../../../shared/ProductCard/ProductCard";
 import { ProductsSlider } from "../../../../shared/ProductsSlider/ProductsSlider";
@@ -20,12 +21,20 @@ export function Assortment(){
                     </div>
                 ) :
                 !error ?
-                (      
-                    <ProductsSlider>
-                        {products?.map((product)=>{
-                            return <ProductCard key={product.id} id={product.id} image={product.image} name={product.name} price={product.price} composition={product.composition} weight={product.weight} kilocalories={product.kilocalories} ></ProductCard>
-                        })}
-                    </ProductsSlider>
+                (   <>
+                        <ProductsSlider>
+                            {products?.map((product)=>{
+                                return <ProductCard key={product.id} id={product.id} image={product.image} name={product.name} price={product.price} composition={product.composition} weight={product.weight} kilocalories={product.kilocalories} ></ProductCard>
+                            })}
+                        </ProductsSlider>
+                        <div className="seeAllCatalogWrapper">
+                            {/* <button className="seeAllCatalogButton"> */}
+                            <Link to={'catalog/'} className="seeAllCatalogButton">
+                                Показати всі
+                            </Link>
+                            {/* </button> */}
+                        </div>
+                    </>
                 ) :
                 (<div>{error}</div>)
                 }

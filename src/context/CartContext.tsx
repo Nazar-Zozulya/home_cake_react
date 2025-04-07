@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { IProduct } from "../shared/types/types";
 import { useProductById } from "../hooks/useProductById";
+import { useProducts } from "../hooks/useProducts";
+
 
 export interface IProductInCart {
     id: number;
@@ -42,6 +44,9 @@ interface ICartContextProviderProps {
 export function CartContextProvider({ children }: ICartContextProviderProps) {
     const [cartCookies, setCartCookies] = useState<IProductInCart[]>([]);
     const [totalSum, setTotalSum] = useState<number>(0);
+    const { products, isLoading, error, refetch } = useProducts()
+
+    // if (!products) return 
 
     function addToCart(id: number): void {
         let array = [...cartCookies, {id: id, count: 1}];
@@ -81,55 +86,77 @@ export function CartContextProvider({ children }: ICartContextProviderProps) {
                 : product
             )
             .filter((product) => product.count > 0)
-    )
+        )
     }
 
     function clearCart(): void {
         setCartCookies([]);
     }
 
+    async function calculateTotal() {
+        let sum = 0;
+        
+        // console.log(products)
+
+        try{
+
+            if(!products) return
+
+            sum = cartCookies.reduce((acc, item) => {
+                const product = products.find((p) => p.id === item.id);
+                return product ? acc + product.price * item.count : acc;
+            }, 0);
+
+            // console.log(sum)
+        
+            setTotalSum(sum);
+        } catch{
+            console.log('total sum error')
+        }
+
+
+        // if (!products) return      
+
+        // // console.log(cartCookies)
+
+        // sum =  cartCookies.reduce((acc, item) => {
+        //     const product = products.find((p) => p.id === item.id);
+        //     return product ? acc + product.price * item.count : acc;
+        // }, 0);
+
+        // // console.log(sum)
+    
+        // setTotalSum(sum);
+    }
+
     useEffect(()=>{
+
         const cartInLocal = localStorage.getItem('cart')
 
         if(!cartInLocal) return
-
+        
         const parsedData = JSON.parse(cartInLocal)
-
+        
         setCartCookies(parsedData)
+
     }, [])
 
     
     useEffect(() => {
+        
         localStorage.setItem('cart', JSON.stringify(cartCookies))
-        console.log(cartCookies)
-        async function calculateTotal() {
-            let sum = 0;
-            const productPromises = cartCookies.map((item) =>
-                fetch(`https://shmyk.pythonanywhere.com/api/product/${item.id}`).then((res) => res.json())
-            );
-      
-            try {
-                const products = await Promise.all(productPromises);
-          
-                sum = cartCookies.reduce((acc, item) => {
-                    const product = products.find((p) => p.id === item.id);
-                    return product ? acc + product.price * item.count : acc;
-                }, 0);
-          
-                setTotalSum(sum);
-            } catch (error) {
-                console.error("Ошибка загрузки продуктов:", error);
-            }
-        }
-    
-        if (cartCookies.length > 0) {
-            calculateTotal();
-        } else {
-            setTotalSum(0);
-        }
 
     }, [cartCookies]);
+
+    useEffect(() => {
+
+        if (products) {
+            calculateTotal();
+        }
+        
+    }, [cartCookies, products]);
     
+
     return (
         <CartContext.Provider
         value={{

@@ -1,0 +1,15 @@
+.SmallHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    flex-direction: column;
+    width: 100%;
+    /* height: 100vh; */
+    background: white url(../../../public/img/bg-header.png) 50% 50% no-repeat;
+    background-size:cover;
+}
+
+.navigationButtons a{
+    text-decoration: none;
+}

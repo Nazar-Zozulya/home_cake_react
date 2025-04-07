@@ -18,6 +18,10 @@
     font-size: 64px;
     text-align: center;
     color: #0F0202;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: center;
 }
 
 .assortmentList{
@@ -28,4 +32,35 @@
     align-items: flex-start;
     align-content: center;
     gap: 30px;
+}
+
+.seeAllCatalogWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.seeAllCatalogButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #F9C91E;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: opacity 0.3s ease;
+    font-family: 'M PLUS 1p';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #5073A7;
+    text-decoration: none;
+}
+
+.seeAllCatalogButton:hover {
+    color: #6090DF;
 }

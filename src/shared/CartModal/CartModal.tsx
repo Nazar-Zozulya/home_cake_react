@@ -6,6 +6,7 @@ import "./CartModal.css"
 interface ICartModalProps{
     onClose: ()=> void;
     isModalOpen: boolean;
+    switchModal: ()=> void;
 }
 
 
@@ -38,7 +39,7 @@ export function CartModal(props: ICartModalProps){
 
                         <div className="buyProductsDiv">
                             <p className="sumPrice">{totalSum}</p>
-                            <button className="buyFromCartButton">Замовити</button>                        
+                            <button className="buyFromCartButton" onClick={()=>props.switchModal()}>Замовити</button>                        
                         </div>
                     </div>
                 </div>

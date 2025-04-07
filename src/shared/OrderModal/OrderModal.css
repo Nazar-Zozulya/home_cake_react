@@ -1,0 +1,119 @@
+.OrderModal{
+    display: flex;
+    width: 800px;
+    height: auto;
+    flex-direction: column;
+    background: #FFFEFC;
+    border-radius: 25px;
+}
+
+.orderModalHeader{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.orderModalHeader p{
+    font-family: 'M PLUS 1p';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    color: #000000;
+}
+
+.orderModalDelivaryDiv{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.radioHelpDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+}
+
+.hiddenRadio {
+    display: none;
+}
+
+.radioButton {
+    width: 25px;
+    height: 25px;
+    border: 3px solid #A5A5A5;
+    border-radius: 50%;
+    background-color: transparent;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.activeRadioButton {
+    width: 25px;
+    height: 25px;
+    background-color: #F9C91E;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.radioButtonLabel {
+    font-family: 'Jura';
+    font-weight: 700;
+    font-size: 20px;
+    color: #A5A5A5;
+    cursor: pointer;
+}
+
+.activeRadioButtonLabel {
+    font-family: 'Jura';
+    font-weight: 700;
+    font-size: 20px;
+    color: #303030;
+    cursor: pointer;
+}
+  
+
+.selfOrderModalRadio{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* padding: 10px; */
+    gap: 10px;
+}
+
+.selfOrderModalRadio label{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.selfOrderAnotherInput{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding: 3px 5px; */
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+} 
+  

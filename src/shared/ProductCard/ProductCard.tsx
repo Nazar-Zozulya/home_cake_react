@@ -1,6 +1,7 @@
 import { useCartContext } from "../../context/CartContext";
 import { IProduct } from "../types/types";
 import "./ProductCard.css"
+import { Link } from "react-router-dom";
 
 export function ProductCard(props: IProduct){
 
@@ -10,7 +11,9 @@ export function ProductCard(props: IProduct){
 
     return(
         <div className="ProductCart">
-            <img src={props.image} alt="" className="productImg" />
+            <Link to={`/product/${props.id}`} className="productImgLink">
+                <img src={props.image} alt="" className="productImg" />
+            </Link>
             <div className="productMainInfo">
                 <p className="productName">{props.name}</p>
                 <p className="productPrice">{props.price}</p>

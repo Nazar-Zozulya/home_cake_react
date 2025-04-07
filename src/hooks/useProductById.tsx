@@ -7,7 +7,7 @@ export function useProductById(id: number) {
     const [error, setError] = useState<string | null>(null);
 
     // Вынесли функцию
-    async function fetchProduct() {
+    async function getProductById() {
         if (!id) return;
         try {
             setIsLoading(true);
@@ -24,8 +24,8 @@ export function useProductById(id: number) {
     }
 
     useEffect(() => {
-        fetchProduct(); // Вызываем внутри useEffect
+        getProductById(); // Вызываем внутри useEffect
     }, [id]);
 
-    return { product, isLoading, error, refetch: fetchProduct }; // Можно вернуть refetch для ручного обновления
+    return { product, isLoading, error, refetch: getProductById }; // Можно вернуть refetch для ручного обновления
 }

@@ -1,19 +1,38 @@
 import { MainPage } from "../../pages/MainPage/MainPage";
 import { Footer } from "../Footer/Footer";
-import { Header } from "../Header/Header";
+import { FullHeader } from "../FullHeader/FullHeader";
 import { Main } from "../Main/Main";
+import { Outlet } from "react-router-dom"
 import "./Layout.css"
+import { SmallHeader } from "../../pages/SmallHeader/SmallHeader";
 
 
+interface ILayoutProps{
+    header: string;
+}
 
-
-export function Layout(){
+export function Layout(props: ILayoutProps){
 
     return(
         <div className="Layout">
-            <Header></Header>
+            {
+            props.header === 'full' 
+            ?
+            <FullHeader></FullHeader>
+            :
+            undefined
+            }
+
+            {
+            props.header === 'small' 
+            ?
+            <SmallHeader></SmallHeader>
+            :
+            undefined
+            }
+
             <Main>
-                <MainPage></MainPage>
+                <Outlet/>
             </Main>
             <Footer></Footer>
         </div>
