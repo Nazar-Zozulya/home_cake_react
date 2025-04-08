@@ -15,7 +15,7 @@ interface ISelfOrderModalForm{
     phone: number;
     email: string;
     describeOrder: string;
-    delivaryMethod: string;
+    deliveryMethod: string;
     adress?: string;
     data?: number;
     time?: number;
@@ -27,11 +27,26 @@ export function OrderModal(props: IOrderModalProps){
             mode: 'onSubmit'
     })
 
-    function onSubmit(){
-        console.log(123123123)
+    async function onSubmit(data: ISelfOrderModalForm){
+
+        try {
+            data.deliveryMethod = `${deliveryMethod}`
+
+            const response = await fetch("http://127.0.0.1:8000/send/order/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                credentials: "include", // Включаем куки (если нужно)
+                body: JSON.stringify(data),
+            });
+            props.switchModal();
+        } catch (error) {
+            console.log(error);
+        }
     }
 
-    const [deliveryMethod, setDelivaryMethod] = useState<string>('Самовивіз')
+    const [deliveryMethod, setDeliveryMethod] = useState<string>('Самовивіз')
 
 
     return(
@@ -95,12 +110,12 @@ export function OrderModal(props: IOrderModalProps){
                     </label>
 
                     <div className="orderModalDelivaryDiv">
-                        <div className='radioHelpDiv' onClick={() => setDelivaryMethod('Самовивіз')}>
+                        <div className='radioHelpDiv' onClick={() => setDeliveryMethod('Самовивіз')}>
                             <input
                                 type="radio"
                                 id="pickup"
                                 value="Самовивіз"
-                                {...register('delivaryMethod')}
+                                {...register('deliveryMethod')}
                                 checked={deliveryMethod === 'Самовивіз'}
                                 className="hiddenRadio"
                             />
@@ -110,12 +125,12 @@ export function OrderModal(props: IOrderModalProps){
                             </label>
                         </div>
 
-                        <div className='radioHelpDiv' onClick={() => setDelivaryMethod('Доставка')}>
+                        <div className='radioHelpDiv' onClick={() => setDeliveryMethod('Доставка')}>
                             <input
                                 type="radio"
                                 id="delivery"
                                 value="Доставка"
-                                {...register('delivaryMethod')}
+                                {...register('deliveryMethod')}
                                 checked={deliveryMethod === 'Доставка'}
                                 className="hiddenRadio"
                             />

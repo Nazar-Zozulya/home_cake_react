@@ -26,7 +26,7 @@ export function SelfOrderModal(props: ISelfOrderModalProps){
 
     async function onSubmit(data: ISelfOrderModalForm) {
         try {
-            const response = await fetch("http://127.0.0.1:8000/send/test/", {
+            const response = await fetch("http://127.0.0.1:8000/send/self-order/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

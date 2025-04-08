@@ -11,10 +11,12 @@
     background: #FFFEFC;
     box-shadow: 3px 4px 7px 5px rgba(0, 0, 0, 0.3);
     border-radius: 30px;
+    /* padding: 5px; */
 }
 
 .productImg{
-    height: 200px;
+    height: 190px;
+    border-radius: 15px;
 }
 
 .productMainInfo{
