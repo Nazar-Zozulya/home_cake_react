@@ -1,3 +1,18 @@
 .MainPage{
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.listElement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.assortmentElement{
+    justify-content: end !important;
 }

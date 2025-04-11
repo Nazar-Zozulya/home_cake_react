@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Modal } from "../Modal/Modal";
 import { useForm } from "react-hook-form";
 import "./OrderModal.css"
+import { useCartContext } from "../../context/CartContext";
 
 interface IOrderModalProps{
     onClose:()=> void;
@@ -14,7 +15,6 @@ interface ISelfOrderModalForm{
     surname: string;
     phone: number;
     email: string;
-    describeOrder: string;
     deliveryMethod: string;
     adress?: string;
     data?: number;
@@ -27,24 +27,38 @@ export function OrderModal(props: IOrderModalProps){
             mode: 'onSubmit'
     })
 
-    async function onSubmit(data: ISelfOrderModalForm){
+    const { totalSum, cartCookies } = useCartContext()
 
+    async function onSubmit(data: ISelfOrderModalForm) {
         try {
-            data.deliveryMethod = `${deliveryMethod}`
-
+            data.deliveryMethod = `${deliveryMethod}`;
+    
             const response = await fetch("http://127.0.0.1:8000/send/order/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 credentials: "include", // Включаем куки (если нужно)
-                body: JSON.stringify(data),
+                body: JSON.stringify({
+                    userData: data,
+                    totalSum: totalSum,
+                    productsInCart: cartCookies,
+                }),
             });
-            props.switchModal();
+    
+            const responseData = await response.json();
+    
+            if (responseData.payment_url) {
+                // Перенаправляем на страницу оплаты
+                window.location.href = responseData.payment_url;
+            } else {
+                console.log('Ошибка при создании платежа');
+            }
         } catch (error) {
-            console.log(error);
+            console.log("Ошибка при отправке данных:", error);
         }
     }
+    
 
     const [deliveryMethod, setDeliveryMethod] = useState<string>('Самовивіз')
 
@@ -100,15 +114,7 @@ export function OrderModal(props: IOrderModalProps){
                             <p>{formState.errors.surname?.message}</p>
                         </label>
                     </div>
-                    <label className="selfOrderModalLabel">
-                        <input type="textarea" placeholder="Опишіть ваше побажання" className="selfOrderInput fullInput" {...register('describeOrder', {
-                            required: {value: true, message: 'Це поле обов\'язкове'},
-                            maxLength: {value: 1000, message: 'Ваш опис заказу занадто великий'},
-                            minLength: {value: 3, message: 'Ваш опис заказу занадто маленький'},
-                        })}/>
-                        <p>{formState.errors.surname?.message}</p>    
-                    </label>
-
+                    
                     <div className="orderModalDelivaryDiv">
                         <div className='radioHelpDiv' onClick={() => setDeliveryMethod('Самовивіз')}>
                             <input
@@ -152,21 +158,23 @@ export function OrderModal(props: IOrderModalProps){
                                 })}/>
                                 <p>{formState.errors.adress?.message}</p>    
                             </label>
+                            
+                            <div className="selfOrderModalDataAndTimeInputsDiv">
+                                <div className="selfOrderModalRadio">
+                                    <label>Дата</label>
+                                    <input type="date" placeholder="Дата" className="selfOrderAnotherInput" {...register('data', {
+                                        required: {value: true, message: 'Це поле обов\'язкове'},
+                                    })}/>
+                                    <p>{formState.errors.data?.message}</p>    
+                                </div>
 
-                            <div className="selfOrderModalRadio">
-                                <label>Дата</label>
-                                <input type="date" placeholder="Дата" className="selfOrderAnotherInput" {...register('data', {
-                                    required: {value: true, message: 'Це поле обов\'язкове'},
-                                })}/>
-                                <p>{formState.errors.data?.message}</p>    
-                            </div>
-
-                            <div className="selfOrderModalRadio">
-                                <label>Час</label>
-                                <input type="time" placeholder="Опишіть ваше побажання" className="selfOrderAnotherInput" {...register('time', {
-                                    required: {value: true, message: 'Це поле обов\'язкове'},
-                                })}/>
-                                <p>{formState.errors.time?.message}</p>    
+                                <div className="selfOrderModalRadio">
+                                    <label>Час</label>
+                                    <input type="time" placeholder="Опишіть ваше побажання" className="selfOrderAnotherInput" {...register('time', {
+                                        required: {value: true, message: 'Це поле обов\'язкове'},
+                                    })}/>
+                                    <p>{formState.errors.time?.message}</p>    
+                                </div>
                             </div>
                         </>
                         :

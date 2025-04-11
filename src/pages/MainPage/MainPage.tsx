@@ -9,13 +9,13 @@ export function MainPage(){
 
     return (
         <div className="MainPage">
-            <Element name='NewProducts'>
+            <Element className="listElement" name='NewProducts'>
                 <NewProducts></NewProducts>
             </Element>
-            <Element name="AboutUs">
+            <Element className="listElement" name="AboutUs">
                 <AboutUs></AboutUs>
             </Element>
-            <Element name="Assortment">
+            <Element className="listElement assortmentElement" name="Assortment">
                 <Assortment></Assortment>
             </Element>
         </div>

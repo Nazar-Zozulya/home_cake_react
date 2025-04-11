@@ -32,13 +32,18 @@
 
 .aboutUsList{
     display: flex;
-    /* flex-direction: row; */
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-between;
     align-items: space-between;
-    /* align-content: space-between; */
-    padding: 50px;
-    gap: 320px;
-    width: 100%;
+    padding: 35px;
+    width: 85%;
     position: relative;
+}
+
+.aboutUsListHelpDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 100px;
 }

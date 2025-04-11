@@ -28,6 +28,11 @@
     color: #000000;
 }
 
+
+.selfOrderModalHeaderLinksTitle{
+    font-size: 25px !important;
+}
+
 .selfOrderFormDiv{
     box-sizing: border-box;
     display: flex;

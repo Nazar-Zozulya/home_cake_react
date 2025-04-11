@@ -5,10 +5,9 @@
     isolation: isolate;
     width: 100%;
     background: white url(../../../../../public/img/assortment.jpg) 50% 0 no-repeat;
-    background-size: 100% auto;
-    /* padding-top: 40px; */
+    background-size: cover;
     gap: 30px;
-    margin-bottom: 80px;
+    padding-bottom: 20px;
 }
 
 .assortmentTitle{

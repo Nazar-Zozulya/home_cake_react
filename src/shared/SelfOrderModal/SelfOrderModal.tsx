@@ -106,7 +106,7 @@ export function SelfOrderModal(props: ISelfOrderModalProps){
                     <button className="buyFromCartButton" type="submit">Замовити</button>                        
                 </form>
                 <div className="selfOrderModalHeader">
-                    <p>Або напишіть нам у соц мережах:</p>
+                    <p className="selfOrderModalHeaderLinksTitle">Або напишіть нам у соц мережах:</p>
                 </div>
                 <div className="selfOrderModalLinksDiv">
                     <LinksDiv></LinksDiv>
