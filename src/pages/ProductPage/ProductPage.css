@@ -120,6 +120,13 @@
     gap: 5px;
 }
 
+.productPageSecondTextInfoHelp{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
 .productPageCompositionTitle{
     font-family: 'Jura';
     font-style: normal;
@@ -134,4 +141,10 @@
     font-weight: 700;
     font-size: 28px;
     color: #0F0202;
+}
+
+@media (max-width: 768px){
+    .productPageInfo{
+        flex-direction: column;
+    }
 }

@@ -4,7 +4,7 @@ import { FullHeader } from "../FullHeader/FullHeader";
 import { Main } from "../Main/Main";
 import { Outlet } from "react-router-dom"
 import "./Layout.css"
-import { SmallHeader } from "../../pages/SmallHeader/SmallHeader";
+import { SmallHeader } from "../SmallHeader/SmallHeader";
 
 
 interface ILayoutProps{

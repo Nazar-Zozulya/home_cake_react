@@ -1,0 +1,51 @@
+.addToCartButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(178.24deg, #FFDCAB -28.71%, #FFB34E 125.21%);
+    border-radius: 10px;
+}
+
+.addToCartButton svg{
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+
+.addToCartButton:hover{
+    background: linear-gradient(178.24deg, #fadfb9 -28.71%, #ffbf6a 125.21%);
+}
+
+.selectedAddToCartButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    border-radius: 10px; /* Закругленные углы */
+    background: linear-gradient(178.24deg, rgba(160, 160, 160, 0.7) -28.71%, rgba(80, 79, 79, 0.7) 125.21%);
+
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+.selectedAddToCartButton svg{
+    width: 30px;
+    height: 30px;
+    fill: rgba(255, 255, 255, 0.7);
+}
+
+.selectedAddToCartButton:hover{
+    background: linear-gradient(178.24deg, rgba(192, 192, 192, 0.7) -28.71%, rgba(136, 136, 136, 0.7) 125.21%);
+}
+
+.selectedAddToCartButton:hover svg{
+    fill: white;
+}

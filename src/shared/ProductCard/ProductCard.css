@@ -67,12 +67,18 @@
     align-items: center;
     width: 40px;
     height: 40px;
-    background: white url(../../../public/img/add-to-cart.jpg) 50% 50% no-repeat;
+    /* background: white url(../../../public/img/add-to-cart.jpg) 50% 50% no-repeat; */
     border-radius: 10px;
     background-size: 40px 40px;
     border: none;
     cursor: pointer;
 }
+
+/* .addToCartButton:hover svg{
+    width: 30px;
+    height: 300px;
+    fill: blue;
+} */
 
 .selectedProductInCart{
     display: flex;
@@ -87,6 +93,8 @@
     border: none;
     cursor: pointer;
 }
+
+
 
 .productThirdInfo{
     display: flex;

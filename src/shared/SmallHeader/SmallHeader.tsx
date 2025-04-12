@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { CartModal } from "../../shared/CartModal/CartModal"
-import { OrderModal } from "../../shared/OrderModal/OrderModal"
-import { SelfOrderModal } from "../../shared/SelfOrderModal/SelfOrderModal"
-import { VerifyEmailModal } from "../../shared/VerifyEmailModal/VerifyEmailModal"
+import { CartModal } from "../CartModal/CartModal"
+import { OrderModal } from "../OrderModal/OrderModal"
+import { SelfOrderModal } from "../SelfOrderModal/SelfOrderModal"
+import { VerifyEmailModal } from "../VerifyEmailModal/VerifyEmailModal"
 import { Link } from "react-router-dom";
 import "./SmallHeader.css"
 

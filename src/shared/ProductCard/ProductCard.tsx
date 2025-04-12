@@ -2,12 +2,11 @@ import { useCartContext } from "../../context/CartContext";
 import { IProduct } from "../types/types";
 import "./ProductCard.css"
 import { Link } from "react-router-dom";
+import { ReactComponent as CartIcon } from '../../assets/cart-icon.svg'; 
+import { AddToCartButton } from "../AddToCartButton/AddToCartButton";
+
 
 export function ProductCard(props: IProduct){
-
-    const { addToCart, isInCart, deleteFromCart } = useCartContext()
-
-    const isInCartResult = isInCart(props.id)
 
     return(
         <div className="ProductCart">
@@ -20,7 +19,7 @@ export function ProductCard(props: IProduct){
             </div>
             <div className="productSecondInfo">
                 <p className="productComposition">{props.composition}</p>
-                <button className={ isInCartResult ? 'selectedProductInCart' : 'productAddToCart' } onClick={()=> isInCartResult ? deleteFromCart(props.id) : addToCart(props.id) }></button>       
+                <AddToCartButton id={props.id}/>
             </div>
             <div className="productThirdInfo">
                 <p>{props.weight}</p>

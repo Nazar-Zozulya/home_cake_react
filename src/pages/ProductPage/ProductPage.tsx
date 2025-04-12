@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useProductById } from "../../hooks/useProductById"
 import { useCartContext } from "../../context/CartContext"
 import "./ProductPage.css"
+import { AddToCartButton } from "../../shared/AddToCartButton/AddToCartButton"
 
 
 
@@ -58,12 +59,16 @@ export function ProductPage(){
                             </div>
                         </div>
 
+
                         <div className="productPageSecondTextInfo">
-                            <p className="productPageCompositionTitle">Склад</p>
-                            <p className="productPageCompostion">{product.composition}</p>
+                            <div className="productPageSecondTextInfoHelp">
+                                <p className="productPageCompositionTitle">Склад</p>
+                                <p className="productPageCompostion">{product.composition}</p>
+
+                            </div>
+                            <AddToCartButton id={product.id} />     
                         </div>
 
-                        <button className={ isInCartResult ? 'selectedProductInCart' : 'productAddToCart' } onClick={()=> isInCartResult ? deleteFromCart(Number(params.id)) : addToCart(Number(params.id)) }></button>       
                     </div>
                 </div>
             </div>
