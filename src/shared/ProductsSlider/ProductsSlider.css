@@ -1,32 +1,41 @@
 .slider-container {
     width: 100%;
-    max-width: 180vh;
+    /* max-width: 180vh; */
     margin: 0 auto;
     padding: 20px;
     gap: 30px;
+    display: block;
+    text-align: left;
 }
 
-/* .slick-slider{
-    position: relative;
-} */
+.slick-slider {
+    width: 100vw; /* или 100%, если родитель норм */
+}
 
 .slick-slide {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     padding: 20px;
+}
+
+.slick-list {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .slick-slide div{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .slick-track {
     display: flex !important;
     justify-content: center;
     align-items: center ;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .slick-dots {

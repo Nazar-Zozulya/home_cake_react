@@ -18,7 +18,7 @@ export function FullHeader(){
     return(
             <Element className="FullHeader" name="Header">
                 <div className="navigationDiv">
-                    <div className="navigationButtons">
+                    <div className="navigationButtons firstNavigationButton">
                         <Link to="Header" smooth={true}>
                             <button><p>Головна</p></button>
                         </Link>

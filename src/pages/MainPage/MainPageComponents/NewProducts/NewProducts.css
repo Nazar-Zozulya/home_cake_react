@@ -28,3 +28,15 @@
     align-content: center;
     gap: 30px;
 }
+
+@media (max-width: 650px) {
+    .newTitle{
+        font-size: 54px;
+    }
+}
+
+@media (max-width: 460px) {
+    .newTitle{
+        font-size: 46px;
+    }
+}

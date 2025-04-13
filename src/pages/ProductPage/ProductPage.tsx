@@ -35,15 +35,15 @@ export function ProductPage(){
             <div className="productPageDiv">
                 <p className="productPageName">{product.name}</p>
                 <div className="productPageInfo">
-                    <div className="productPageAllImages">
-                        <img src={product.image} alt="" className="productPageImg" />
-                        <div className="productPageOtherImages">
+                    {/* <div className="productPageAllImages"> */}
+                    <img src={product.image} alt="" className="productPageImg" />
+                        {/* <div className="productPageOtherImages">
                             <img src={product.image} alt="" className="productPageSmallImage" />
                             <img src={product.image} alt="" className="productPageSmallImage" />
                             <img src={product.image} alt="" className="productPageSmallImage" />
                             <img src={product.image} alt="" className="productPageSmallImage" />
-                        </div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
                     <div className="productPageAllTextInfo">
                         <div className="productPageFirstTextInfo">
                             <div className="productPageFirstTextInfoTitle">

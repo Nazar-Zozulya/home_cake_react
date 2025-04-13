@@ -25,10 +25,9 @@
 
 .assortmentList{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     align-content: center;
     gap: 30px;
 }
@@ -62,4 +61,17 @@
 
 .seeAllCatalogButton:hover {
     color: #6090DF;
+}
+
+
+@media (max-width: 650px) {
+    .assortmentTitle{
+        font-size: 54px;
+    }
+}
+
+@media (max-width: 460px) {
+    .assortmentTitle{
+        font-size: 46px;
+    }
 }

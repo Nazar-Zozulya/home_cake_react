@@ -45,3 +45,67 @@
     width: 90px;
     height: 90px;
 }
+
+
+@media (max-width: 1100px) {
+    .AboutUsCard{
+        width: 300px;
+    }
+
+    .aboutUsCardTitle{
+        font-size: 26px;
+    }
+
+    .aboutUsCardDescription{
+        font-size: 18px;
+    }
+
+    .aboutUsCardImg{
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 810px) {
+    .AboutUsCard{
+        width: 250px;
+    }
+
+    .aboutUsCardTitle{
+        font-size: 24px;
+    }
+
+    .aboutUsCardDescription{
+        font-size: 14px;
+    }
+
+    .aboutUsCardImg{
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 680px) {
+    .AboutUsCard{
+        width: 200px;
+    }
+
+    .aboutUsCardTitle{
+        font-size: 22px;
+    }
+
+    .aboutUsCardDescription{
+        font-size: 12px;
+    }
+
+    .aboutUsCardImg{
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 620px) {
+    .AboutUsCard{
+        margin: 8px;
+    }
+}

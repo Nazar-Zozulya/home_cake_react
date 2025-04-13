@@ -19,21 +19,22 @@ export function ProductsSlider(props: IProductsSliderProps){
         slidesToScroll: 1,
         adaptiveHeight: true,
         easing: "ease",
-        // centerMode: true, // Включаем центрирование
+        rtl: false,
+        centerMode: false, // Включаем центрирование
         centerPadding: "0px", // Убираем отступы, чтобы карточки были в центре
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1290,
                 settings: {
                     slidesToShow: 2,
-                    centerMode: true,
+                    // centerMode: true,
                 },
             },
             {
-                breakpoint: 768,
+                breakpoint: 880,
                 settings: {
                     slidesToShow: 1,
-                    centerMode: true,
+                    // centerMode: true,
                 },
             },
         ],

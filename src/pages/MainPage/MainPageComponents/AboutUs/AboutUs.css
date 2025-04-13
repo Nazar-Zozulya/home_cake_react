@@ -47,3 +47,31 @@
     flex-direction: column;
     gap: 100px;
 }
+
+
+@media (max-width: 620px) {
+    .aboutUsList{
+        flex-direction: column;
+        min-height: 150vh;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .aboutUsListHelpDiv{
+        gap: 30px;
+    }
+
+    
+}
+
+@media (max-width: 740px) {
+    .aboutUsTitle{
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutUsTitle{
+        font-size: 36px;
+    }
+}
