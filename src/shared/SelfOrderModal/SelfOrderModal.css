@@ -14,7 +14,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 800px;
+    width: 100%;
     padding: 5px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -41,7 +41,7 @@
     align-items: center;
     padding: 20px;
     gap: 40px;
-    width: 800px;
+    width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -80,7 +80,66 @@
 }
 
 .selfOrderModalLinksDiv{
-    width: 800px;
+    width: 100%;
     display: flex;
     justify-content: center;
+}
+
+
+@media (max-width: 900px) {
+    .SelfOrderModal{
+        width: 700px;
+    }
+
+    .fullInput{
+        width: 660px !important;
+    }
+
+    .selfOrderInput{
+        width: 320px;
+    }
+}
+
+@media (max-width: 750px){
+    .SelfOrderModal{
+        width: 600px;
+    }
+
+    .fullInput{
+        width: 560px !important;
+    }
+
+    .selfOrderInput{
+        width: 270px;
+    }
+}
+
+@media (max-width: 630px) {
+    .SelfOrderModal{
+        width: 100%;
+        border-radius: 0;
+        height: 100vh;
+        justify-content: start;
+    }
+    
+    .selfOrderInput{
+        width: 100% !important;
+    }
+
+    .selfOrderFormDiv{
+        gap: 50px;
+    }
+
+    .selfOrderFormHelpDiv{
+        padding: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .selfOrderModalLabel{
+        width: 100%;
+    }
+
+
 }

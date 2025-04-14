@@ -124,3 +124,14 @@
     text-align: center;
     color: #000000;
 }
+
+
+@media (max-width: 900px) {
+    .CartProductCard{
+        width: 98%;
+    }
+
+    .cartProductImg{
+        width: 130px;
+    }
+}

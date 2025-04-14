@@ -1,6 +1,6 @@
-import { IProductInCart, useCartContext } from "../../context/CartContext";
-import { useProductById } from "../../hooks/useProductById";
-import { IProduct } from "../types/types";
+import { IProductInCart, useCartContext } from "../../../context/CartContext";
+import { useProductById } from "../../../hooks/useProductById";
+import { IProduct } from "../../types/types";
 import "./CartProductCard.css"
 
 

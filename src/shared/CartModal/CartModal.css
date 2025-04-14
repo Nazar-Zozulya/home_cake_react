@@ -81,8 +81,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 250px;
-    height: 40px;
+    padding: 7px 12px 7px 12px;
     background: linear-gradient(168.5deg, #E8E8E8 -18%, #C6C4C4 136.97%);
     border-radius: 5px;
     font-family: 'M PLUS 1p';
@@ -135,11 +134,40 @@
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: none;
-    width: 180px;
-    height: 50px;
+    padding: 5px 10px 5px 10px;
+    /* width: 180px; */
+    /* height: 50px; */
     cursor: pointer;
 }
 
 .buyFromCartButton:hover{
     background: linear-gradient(178.24deg, #FFE8C7 -28.71%, #FFC67B 125.21%);
+}
+
+@media (max-width: 900px) {
+    .CartModal{
+        width: 700px;
+    }
+}
+
+@media (max-width: 750px) {
+    .CartModal{
+        width: 600px;
+    }
+
+    .sumPrice{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 630px) {
+    .CartModal{
+        width: 100%;
+        border-radius: 0;
+        height: 100vh;
+    }
+
+    .cartModalList{
+        flex: 1;
+    }
 }

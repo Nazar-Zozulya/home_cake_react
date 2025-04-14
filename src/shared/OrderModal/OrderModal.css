@@ -126,3 +126,65 @@
     flex-direction: row;
     gap: 35px;
 }
+
+@media (max-width: 900px) {
+    .OrderModal{
+        width: 700px;
+    }
+
+    .fullInput{
+        width: 660px !important;
+    }
+
+    .selfOrderInput{
+        width: 320px;
+    }
+}
+
+@media (max-width: 750px){
+    .OrderModal{
+        width: 600px;
+    }
+
+    .fullInput{
+        width: 560px !important;
+    }
+
+    .selfOrderInput{
+        width: 270px;
+    }
+}
+
+@media (max-width: 630px) {
+    .OrderModal{
+        width: 100%;
+        border-radius: 0;
+        height: 100vh;
+        justify-content: start;
+    }
+    
+    .selfOrderInput{
+        width: 100% !important;
+    }
+
+    .selfOrderFormDiv{
+        gap: 50px;
+    }
+
+    .selfOrderFormHelpDiv{
+        padding: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .selfOrderModalLabel{
+        width: 100%;
+    }
+
+    .selfOrderFormDiv{
+        border-bottom: 0;
+    }
+
+
+}

@@ -10,7 +10,7 @@
     background-size: cover;
     background-position: center;
     padding: 0px;
-    min-height: 125vh;
+    min-height: 110vh;
 }
 
 .aboutUsContainer{
@@ -48,20 +48,33 @@
     gap: 100px;
 }
 
+@media (max-width: 900px) {
+    .aboutUsList{
+        width: 100%;
+    }
+}
 
-@media (max-width: 620px) {
+
+@media (max-width: 680px) {
     .aboutUsList{
         flex-direction: column;
-        min-height: 150vh;
+        /* min-height: 150vh; */
         justify-content: center;
         gap: 30px;
+        width: 100%;
     }
 
     .aboutUsListHelpDiv{
-        gap: 30px;
+        gap: 70px;
     }
 
+    .AboutUs{
+        min-height: 130vh;
+    }
     
+    .aboutUsList{
+        gap: 70px;
+    }
 }
 
 @media (max-width: 740px) {
@@ -70,7 +83,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
     .aboutUsTitle{
         font-size: 36px;
     }

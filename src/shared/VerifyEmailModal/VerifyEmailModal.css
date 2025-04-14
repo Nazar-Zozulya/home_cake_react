@@ -17,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    width: 770px;
+    width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -36,7 +36,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 770px;
+    width: 100%;
 }
 
 .verifyEmailModalTextMain{
@@ -49,7 +49,7 @@
 }
 
 .verifyEmailModalTextSecond{
-    width: 768px;
+    width: 100%;
     height: 24px;
     font-family: 'Jura';
     font-style: normal;
@@ -61,4 +61,33 @@
 
 .verifyEmailButton{
     width: 300px;
+}
+
+@media (max-width: 900px) {
+    .VerifyEmailModal{
+        width: 700px;
+    }
+}
+
+@media (max-width: 750px){
+    .VerifyEmailModal{
+        width: 600px;
+    }
+}
+
+@media (max-width: 630px) {
+    .VerifyEmailModal{
+        width: 100%;
+        border-radius: 0;
+        height: 100vh;
+        justify-content: start;
+    }
+
+    .verifyEmailModalHeader p{
+        font-size: 32px;
+    }
+
+    .verifyEmailModalTextDiv{
+        flex: 1;
+    }
 }

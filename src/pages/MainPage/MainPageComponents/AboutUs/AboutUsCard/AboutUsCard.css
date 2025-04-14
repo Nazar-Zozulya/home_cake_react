@@ -15,7 +15,7 @@
     width: 100%;
     /* padding-top: 45px; */
     /* height: calc(auto + 4500); */
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(199, 198, 198, 0.7);
     border-radius: 15px;
     margin: -40px 0px;
     padding: 20px 20px 50px;
@@ -49,7 +49,8 @@
 
 @media (max-width: 1100px) {
     .AboutUsCard{
-        width: 300px;
+        width: 340px;
+        padding: 0;
     }
 
     .aboutUsCardTitle{
@@ -61,15 +62,22 @@
     }
 
     .aboutUsCardImg{
+        margin: 10px 0px;
         width: 60px;
         height: 60px;
     }
 }
 
-@media (max-width: 810px) {
+@media (max-width: 900px) {
     .AboutUsCard{
-        width: 250px;
+        width: 340px;
     }
+}
+
+@media (max-width: 810px) {
+    /* .AboutUsCard{
+        width: 280px;
+    } */
 
     .aboutUsCardTitle{
         font-size: 24px;
@@ -85,9 +93,23 @@
     }
 }
 
+
+@media (max-width: 770px) {
+    .AboutUsCard{
+        width: 320px;
+    }
+}
+
+@media (max-width: 710px) {
+    .AboutUsCard{
+        width: 300px;
+    }
+}
+
 @media (max-width: 680px) {
     .AboutUsCard{
-        width: 200px;
+        /* margin: 8px; */
+        width: 100%;
     }
 
     .aboutUsCardTitle{
@@ -95,17 +117,24 @@
     }
 
     .aboutUsCardDescription{
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .aboutUsCardImg{
+        margin: 5px 0px;
+        width: 60px;
+        height: 60px;
+    }
+
+    /* .aboutUsCardImg{
         width: 35px;
         height: 35px;
-    }
+    } */
 }
 
-@media (max-width: 620px) {
+/* @media (max-width: 620px) {
     .AboutUsCard{
         margin: 8px;
+        width: 100%;
     }
-}
+} */

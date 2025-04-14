@@ -1,5 +1,5 @@
 import { useCartContext } from "../../context/CartContext";
-import { CartProductCard } from "../CartProductCard/CartProductCard";
+import { CartProductCard } from "./CartProductCard/CartProductCard";
 import { Modal } from "../Modal/Modal";
 import "./CartModal.css"
 
