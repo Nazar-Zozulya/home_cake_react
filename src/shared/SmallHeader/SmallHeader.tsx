@@ -2,8 +2,8 @@ import { useState } from "react"
 import { CartModal } from "../CartModal/CartModal"
 import { OrderModal } from "../OrderModal/OrderModal"
 import { SelfOrderModal } from "../SelfOrderModal/SelfOrderModal"
-import { VerifyEmailModal } from "../VerifyEmailModal/VerifyEmailModal"
 import { Link } from "react-router-dom";
+import { SuccessModal } from "../SuccessModal";
 import "./SmallHeader.css"
 
 
@@ -39,10 +39,11 @@ export function SmallHeader(){
                     <SelfOrderModal 
                     onClose={()=>{setIsSelfOrderModalOpen(false)}}
                     isModalOpen={isSelfOrderModalOpen}
-                    switchModal={()=>{setIsSelfOrderModalOpen(false); setIsVerifyEmailModalOpen(true)}}
+                    switchSuccessModal={()=>{setIsSelfOrderModalOpen(false); setIsVerifyEmailModalOpen(true)}}
+                    switchErrorModal={()=>{setIsSelfOrderModalOpen(false); console.log('error')}}
                     />
-    
-                    <VerifyEmailModal
+
+                    <SuccessModal
                     onClose={()=>setIsVerifyEmailModalOpen(false)}
                     isModalOpen={isVerifyEmailModalOpen}
                     />
@@ -50,7 +51,8 @@ export function SmallHeader(){
                     <OrderModal
                     onClose={()=>setIsOrderModalOpen(false)}
                     isModalOpen={isOrderModalOpen}
-                    switchModal={()=>{setIsOrderModalOpen(false); setIsVerifyEmailModalOpen(true)}}
+                    switchSuccessModal={()=>{setIsOrderModalOpen(false); setIsVerifyEmailModalOpen(true)}}
+                    switchErrorModal={()=>{setIsOrderModalOpen(false); console.log('error')}}
                     />
                 </div>
         )

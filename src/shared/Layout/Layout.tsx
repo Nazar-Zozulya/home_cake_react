@@ -1,4 +1,3 @@
-import { MainPage } from "../../pages/MainPage/MainPage";
 import { Footer } from "../Footer/Footer";
 import { FullHeader } from "../FullHeader/FullHeader";
 import { Main } from "../Main/Main";

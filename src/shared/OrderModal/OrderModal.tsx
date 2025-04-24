@@ -3,11 +3,13 @@ import { Modal } from "../Modal/Modal";
 import { useForm } from "react-hook-form";
 import "./OrderModal.css"
 import { useCartContext } from "../../context/CartContext";
+import { Response } from "../types/types"
 
 interface IOrderModalProps{
     onClose:()=> void;
     isModalOpen: boolean;
-    switchModal: ()=> void;
+    switchSuccessModal: ()=> void;
+    switchErrorModal: ()=> void
 }
 
 interface ISelfOrderModalForm{
@@ -33,7 +35,7 @@ export function OrderModal(props: IOrderModalProps){
         try {
             data.deliveryMethod = `${deliveryMethod}`;
     
-            const response = await fetch("http://127.0.0.1:8000/send/order/", {
+            const response = await fetch("https://shmyk.pythonanywhere.com/send/order/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -46,14 +48,14 @@ export function OrderModal(props: IOrderModalProps){
                 }),
             });
     
-            const responseData = await response.json();
-    
-            if (responseData.payment_url) {
-                // Перенаправляем на страницу оплаты
-                window.location.href = responseData.payment_url;
-            } else {
-                console.log('Ошибка при создании платежа');
+            const result: Response<null> = await response.json()
+            
+            if (result.status === 'succes'){
+                props.switchSuccessModal()
+            } else{
+                props.switchErrorModal()
             }
+            
         } catch (error) {
             console.log("Ошибка при отправке данных:", error);
         }

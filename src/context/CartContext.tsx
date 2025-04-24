@@ -1,7 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { IProduct } from "../shared/types/types";
-import { useProductById } from "../hooks/useProductById";
-import { useProducts } from "../hooks/useProducts";
+import { useProducts } from "../modules/products/hooks/useProducts";
 
 
 export interface IProductInCart {

@@ -3,12 +3,14 @@ import { useForm } from "react-hook-form"
 import "./SelfOrderModal.css"
 import { LinksDiv } from "../LinksDiv/LinksDiv";
 import { useEffect, useState } from "react";
+import { Response } from "../types/types"
 
 
 interface ISelfOrderModalProps{
     onClose: ()=> void;
     isModalOpen: boolean;
-    switchModal: ()=> void;
+    switchSuccessModal: ()=> void;
+    switchErrorModal: ()=>void;
 }
 
 interface ISelfOrderModalForm{
@@ -26,7 +28,7 @@ export function SelfOrderModal(props: ISelfOrderModalProps){
 
     async function onSubmit(data: ISelfOrderModalForm) {
         try {
-            const response = await fetch("http://127.0.0.1:8000/send/self-order/", {
+            const response = await fetch("https://shmyk.pythonanywhere.com/send/self-order/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -34,7 +36,19 @@ export function SelfOrderModal(props: ISelfOrderModalProps){
                 credentials: "include", // Включаем куки (если нужно)
                 body: JSON.stringify(data),
             });
-            props.switchModal();
+
+            const result: Response<null> = await response.json()
+
+            if (result.status === 'succes'){
+                props.switchSuccessModal()
+            } else{
+                props.switchErrorModal()
+            }
+
+
+
+
+            // props.switchSuccessModal();
         } catch (error) {
             console.log(error);
         }

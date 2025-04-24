@@ -1,0 +1,1 @@
+export { AboutUsCard } from "./AboutUsCard"

@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client"
-import { App } from "./shared/App"
+import { App } from "./App"
+
 
 
 

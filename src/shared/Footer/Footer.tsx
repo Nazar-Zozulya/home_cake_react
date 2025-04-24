@@ -19,25 +19,37 @@ export function Footer(){
                     <div className="navFooter">
                         <div className="navFooterCircle"></div>
                         <Link to="Header" smooth={true}>
-                            <button className="navFooterText">Головна</button>
+                            <button className="navFooterText" onClick={()=>{
+                                const headerBlock = document.querySelector('.FullHeader')
+                                headerBlock?.scrollIntoView({behavior: "smooth", block: "center"})
+                            }}>Головна</button>
                         </Link>
                     </div>
                     <div className="navFooter">
                         <div className="navFooterCircle"></div>
                         <Link to="NewProducts" smooth={true}>
-                            <button className="navFooterText">Новинки</button>
+                            <button className="navFooterText" onClick={()=>{
+                                const newProductsBlock = document.querySelector('.NewProducts')
+                                newProductsBlock?.scrollIntoView({behavior: "smooth", block: "center"})
+                            }}>Новинки</button>
                         </Link>
                     </div>
                     <div className="navFooter">
                         <div className="navFooterCircle"></div>
                         <Link to="AboutUs" smooth={true}>
-                            <button className="navFooterText">Про нас</button>
+                            <button className="navFooterText" onClick={()=>{
+                                const aboutBlock = document.querySelector('.AboutUs')
+                                aboutBlock?.scrollIntoView({behavior: "smooth", block: "center"})
+                            }}>Про нас</button>
                         </Link>
                     </div>
                     <div className="navFooter">
                         <div className="navFooterCircle"></div>
                         <Link to="Assortment" smooth={true}>
-                            <button className="navFooterText">Асортимент</button>
+                            <button className="navFooterText" onClick={()=>{
+                                const assortmentBlock = document.querySelector('.Assortment')
+                                assortmentBlock?.scrollIntoView({behavior: "smooth", block: "center"})
+                            }}>Асортимент</button>
                         </Link>
                     </div>
                 </div>
