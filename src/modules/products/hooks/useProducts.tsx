@@ -20,7 +20,7 @@ export function useProducts(){
             const result = await response.json()
             
             if (result.status === 'success') {
-                setProducts(result)
+                setProducts(result.data)
             } else{
                 setError(result.message)
             }

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { IProductInCart, useCartContext } from "../../context/CartContext";
 import { useProductById } from "../../modules/products/hooks/useProductById";
 import "./CartProductCard.css"
@@ -7,7 +8,10 @@ import "./CartProductCard.css"
 export function CartProductCard(props: IProductInCart){
     const { incrementCount, disincrementCount } = useCartContext()
 
+    
     const { product, isLoading, error } = useProductById(props.id)
+    
+    useEffect(()=>{console.log(product)}, [product])
 
     if (isLoading) {
         return <div>Loading...</div>; // Можно вернуть индикатор загрузки

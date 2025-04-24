@@ -17,7 +17,7 @@ export function useProductById(id: number) {
             const result = await response.json();
 
             if (result.status === 'success') {
-                setProduct(result)
+                setProduct(result.data)
             } else{
                 setError(result.message)
             }

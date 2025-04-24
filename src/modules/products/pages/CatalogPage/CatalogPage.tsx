@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useProducts } from "../../hooks";
 import { ProductCard } from "../../ui";
+import './CatalogPage.css'
 
 export function CatalogPage() {
     const { products, isLoading, error } = useProducts();
-
-    useEffect(()=>{console.log(products)}, [products])
 
     if (isLoading) {
         return <div>Загрузка...</div>;  // Пока идет загрузка
