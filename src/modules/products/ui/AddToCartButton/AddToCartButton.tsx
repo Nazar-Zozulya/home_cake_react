@@ -1,6 +1,6 @@
 import { useCartContext } from "../../../../context/CartContext"
 import { ReactComponent as CartIcon } from '../../../../assets/cart-icon.svg'; 
-import "./AddToCartButton.css"
+import "./AddToCartButton.style.css"
 
 
 

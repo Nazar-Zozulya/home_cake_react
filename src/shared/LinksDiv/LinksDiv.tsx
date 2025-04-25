@@ -1,4 +1,4 @@
-import "./LinksDiv.css"
+import "./LinksDiv.style.css"
 
 
 export function LinksDiv(){

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useProducts } from "../../../../modules/products/hooks/useProducts";
 import { ProductsSlider } from "../../../../shared/ProductsSlider/ProductsSlider";
-import "./Assortment.css"
+import "./Assortment.style.css"
 import { ProductCard } from "../../../../modules/products/ui";
 
 

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useProductById } from "../../hooks/useProductById"
 import { useCartContext } from "../../../../context/CartContext"
-import "./ProductPage.css"
+import "./ProductPage.style.css"
 import { AddToCartButton } from "../../ui/AddToCartButton/AddToCartButton"
 
 

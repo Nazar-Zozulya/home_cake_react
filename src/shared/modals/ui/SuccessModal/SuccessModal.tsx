@@ -1,26 +1,21 @@
+import { useModalStore } from "../..";
 import { Modal } from "../Modal/Modal";
-import "./SuccessModal.css"
+import "./SuccessModal.style.css"
 
 
-interface iVerifyEmailModalProps{
-    onClose: ()=> void;
-    isModalOpen: boolean;
-}
+export function SuccessModal(){
+    const { activeModal, closeModal, switchModal } = useModalStore();
 
-
-export function SuccessModal(props: iVerifyEmailModalProps){
+    // Проверка, если активен модал "cart"
+    if (activeModal !== 'verify') return null;
 
 
     return(
-        <>
-        { props.isModalOpen === false ?
-        undefined 
-        :
-        <Modal isOpen={props.isModalOpen} onClose={()=>props.onClose()}>
+        <Modal isOpen={true} onClose={()=>closeModal()}>
             <div className="VerifyEmailModal">
                 <div className="verifyEmailModalHeader">
                     <p>Підтвердіть пошту</p>
-                    <button className="closeModalButton" onClick={()=>{props.onClose()}}>X</button>
+                    <button className="closeModalButton" onClick={()=>{closeModal()}}>X</button>
                 </div>
 
                 <div className="verifyEmailModalTextDiv">
@@ -31,7 +26,5 @@ export function SuccessModal(props: iVerifyEmailModalProps){
                 <button className="buyFromCartButton verifyEmailButton" type="submit">Підтвердити пошту</button>                        
             </div>
         </Modal>
-        }
-        </>
     )
 }

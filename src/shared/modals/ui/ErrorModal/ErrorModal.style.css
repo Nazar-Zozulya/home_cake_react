@@ -1,0 +1,80 @@
+.ErrorModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px 42px;
+    gap: 72px;
+    width: 800px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    height: 70vh;
+}
+
+.errorModalHeader{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.errorModalHeader p{
+    font-family: 'M PLUS 1p';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    color: #000000;
+}
+
+.errorModalContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.errorModalText{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+    color: #0F0202;
+}
+
+
+@media (max-width: 900px) {
+    .ErrorModal{
+        width: 700px;
+    }
+}
+
+@media (max-width: 750px){
+    .ErrorModal{
+        width: 600px;
+    }
+}
+
+@media (max-width: 630px) {
+    .ErrorModal{
+        width: 100%;
+        border-radius: 0;
+        height: 100vh;
+        justify-content: start;
+    }
+
+    .errorModalHeader p{
+        font-size: 32px;
+    }
+
+    .errorModalContent{
+        flex: 1;
+    }
+}

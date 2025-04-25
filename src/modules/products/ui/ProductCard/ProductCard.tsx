@@ -1,4 +1,4 @@
-import "./ProductCard.css"
+import "./ProductCard.style.css"
 import { Link } from "react-router-dom";
 import { AddToCartButton } from "../AddToCartButton/AddToCartButton";
 import { IProduct } from "../../types";

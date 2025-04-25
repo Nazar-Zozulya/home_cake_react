@@ -1,5 +1,5 @@
-import { LinksDiv } from "../LinksDiv/LinksDiv";
-import "./Footer.css"
+import { LinksDiv } from "../../../shared/LinksDiv/LinksDiv";
+import "./Footer.style.css"
 import { Link } from "react-scroll";
 
 
@@ -21,7 +21,7 @@ export function Footer(){
                         <Link to="Header" smooth={true}>
                             <button className="navFooterText" onClick={()=>{
                                 const headerBlock = document.querySelector('.FullHeader')
-                                headerBlock?.scrollIntoView({behavior: "smooth", block: "center"})
+                                headerBlock?.scrollIntoView({behavior: "smooth", block: "start"})
                             }}>Головна</button>
                         </Link>
                     </div>

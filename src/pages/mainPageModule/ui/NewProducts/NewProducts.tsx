@@ -1,7 +1,7 @@
 import { useProducts } from "../../../../modules/products/hooks/useProducts";
 import { ProductsSlider } from "../../../../shared/ProductsSlider/ProductsSlider";
 import { ProductCard } from "../../../../modules/products/ui";
-import "./NewProducts.css"
+import "./NewProducts.style.css"
 
 
 export function NewProducts(){

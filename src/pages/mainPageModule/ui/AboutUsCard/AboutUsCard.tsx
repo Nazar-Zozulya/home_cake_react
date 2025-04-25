@@ -1,5 +1,5 @@
 import { IAboutUsCard } from "../../../../shared/types/types";
-import "./AboutUsCard.css"
+import "./AboutUsCard.style.css"
 
 
 

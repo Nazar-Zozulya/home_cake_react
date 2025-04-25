@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useProducts } from "../../hooks";
 import { ProductCard } from "../../ui";
-import './CatalogPage.css'
+import './CatalogPage.style.css'
 
 export function CatalogPage() {
     const { products, isLoading, error } = useProducts();

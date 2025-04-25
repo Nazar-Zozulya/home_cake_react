@@ -1,7 +1,7 @@
 import { AboutUs } from "../../ui/AboutUs";
 import { Assortment } from "../../ui/Assortment";
 import { NewProducts } from "../../ui/NewProducts";
-import "./MainPage.css"
+import "./MainPage.style.css"
 
 
 

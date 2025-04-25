@@ -1,5 +1,5 @@
 import { AboutUsCard } from "../AboutUsCard/AboutUsCard";
-import "./AboutUs.css"
+import "./AboutUs.style.css"
 
 
 

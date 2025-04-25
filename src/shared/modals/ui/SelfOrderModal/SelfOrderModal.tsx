@@ -1,17 +1,11 @@
 import { Modal } from "../Modal/Modal";
 import { useForm } from "react-hook-form"
-import "./SelfOrderModal.css"
-import { LinksDiv } from "../LinksDiv/LinksDiv";
+import "./SelfOrderModal.style.css"
 import { useEffect, useState } from "react";
-import { Response } from "../types/types"
+import { Response } from "../../../types/types"
+import { useModalStore } from "../../modalsManager";
+import { LinksDiv } from "../../../LinksDiv/LinksDiv";
 
-
-interface ISelfOrderModalProps{
-    onClose: ()=> void;
-    isModalOpen: boolean;
-    switchSuccessModal: ()=> void;
-    switchErrorModal: ()=>void;
-}
 
 interface ISelfOrderModalForm{
     name: string;
@@ -21,10 +15,12 @@ interface ISelfOrderModalForm{
     describeOrder: string;
 }
 
-export function SelfOrderModal(props: ISelfOrderModalProps){
+export function SelfOrderModal(){
     const {register, handleSubmit, formState} = useForm<ISelfOrderModalForm>({
         mode: 'onSubmit'
     })
+
+    const { activeModal, closeModal, switchModal } = useModalStore();
 
     async function onSubmit(data: ISelfOrderModalForm) {
         try {
@@ -40,9 +36,9 @@ export function SelfOrderModal(props: ISelfOrderModalProps){
             const result: Response<null> = await response.json()
 
             if (result.status === 'succes'){
-                props.switchSuccessModal()
+                switchModal('verify')
             } else{
-                props.switchErrorModal()
+                switchModal('error')
             }
 
 
@@ -53,20 +49,19 @@ export function SelfOrderModal(props: ISelfOrderModalProps){
             console.log(error);
         }
     }
+
+    if (activeModal !== 'selfOrder') return null;
       
       
 
 
     return(
-        <>
-        { props.isModalOpen === false ?
-        undefined
-        :
-        <Modal isOpen={props.isModalOpen} onClose={()=>props.onClose()}>
+
+        <Modal isOpen={true} onClose={()=>closeModal()}>
             <div className="SelfOrderModal">
                 <div className="selfOrderModalHeader">
                     <p>Подати заявку?</p>
-                    <button className="closeModalButton" onClick={()=>{props.onClose()}}>X</button>
+                    <button className="closeModalButton" onClick={()=>{closeModal()}}>X</button>
                 </div>
                 <form action="" onSubmit={handleSubmit(onSubmit)} className="selfOrderFormDiv">
                     <div className="selfOrderFormHelpDiv">
@@ -127,7 +122,6 @@ export function SelfOrderModal(props: ISelfOrderModalProps){
                 </div>
             </div>
         </Modal>
-        }
-        </>
+
     )
 }

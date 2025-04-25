@@ -1,16 +1,10 @@
 import { useState } from "react";
 import { Modal } from "../Modal/Modal";
 import { useForm } from "react-hook-form";
-import "./OrderModal.css"
-import { useCartContext } from "../../context/CartContext";
-import { Response } from "../types/types"
-
-interface IOrderModalProps{
-    onClose:()=> void;
-    isModalOpen: boolean;
-    switchSuccessModal: ()=> void;
-    switchErrorModal: ()=> void
-}
+import "./OrderModal.style.css"
+import { Response } from '../../../types/types'
+import { useCartContext } from "../../../../context";
+import { useModalStore } from "../../modalsManager";
 
 interface ISelfOrderModalForm{
     name: string;
@@ -23,13 +17,17 @@ interface ISelfOrderModalForm{
     time?: number;
 }
 
-export function OrderModal(props: IOrderModalProps){
-
+export function OrderModal(){
+    
     const {register, handleSubmit, formState} = useForm<ISelfOrderModalForm>({
-            mode: 'onSubmit'
+        mode: 'onSubmit'
     })
 
+    const [deliveryMethod, setDeliveryMethod] = useState<string>('Самовивіз')
+    
     const { totalSum, cartCookies } = useCartContext()
+
+    const { activeModal, closeModal, switchModal } = useModalStore();
 
     async function onSubmit(data: ISelfOrderModalForm) {
         try {
@@ -51,30 +49,28 @@ export function OrderModal(props: IOrderModalProps){
             const result: Response<null> = await response.json()
             
             if (result.status === 'succes'){
-                props.switchSuccessModal()
+                switchModal('verify')
             } else{
-                props.switchErrorModal()
+                switchModal('error')
             }
             
         } catch (error) {
             console.log("Ошибка при отправке данных:", error);
         }
     }
+
+
+    if (activeModal !== 'order') return null;
     
 
-    const [deliveryMethod, setDeliveryMethod] = useState<string>('Самовивіз')
 
 
     return(
-        <>
-        { props.isModalOpen === false ?
-        undefined
-        :
-        <Modal isOpen={props.isModalOpen} onClose={()=>props.onClose()}>
+        <Modal isOpen={true} onClose={()=>closeModal()}>
             <div className="OrderModal">
                 <div className="orderModalHeader">
                     <p>Заповніть данні для замовлення</p>
-                    <button className="closeModalButton" onClick={()=>{props.onClose()}}>X</button>    
+                    <button className="closeModalButton" onClick={()=>{closeModal()}}>X</button>    
                 </div>
                 <form action="" onSubmit={handleSubmit(onSubmit)} className="selfOrderFormDiv">
                     <div className="selfOrderFormHelpDiv">
@@ -191,7 +187,5 @@ export function OrderModal(props: IOrderModalProps){
                 </form>
             </div>
         </Modal>
-        }
-        </>
     )
 }
