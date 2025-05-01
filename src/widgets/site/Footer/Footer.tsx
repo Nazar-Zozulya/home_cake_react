@@ -11,8 +11,8 @@ export function Footer(){
 
             <div className="footerHelpDiv">
                 <div className="footerLogo">
-                    <img src="/img/logo.png" alt="" />
-                    <p>Home Cake</p>
+                    <img src="/img/gold logo.png" alt="" />
+                    {/* <p>Home Cake</p> */}
                 </div>
 
                 <div className="navFootersList">
