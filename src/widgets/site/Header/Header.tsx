@@ -14,7 +14,7 @@ export function Header() {
     const { openModal, activeModal } = useModalStore();
 
     return (
-        <div className="SmallHeader">
+        <div className="Header">
             <div className="navigationDiv">
                 <div className="navigationButtons">
                     <Link to={'/'}>
@@ -72,10 +72,10 @@ export function FullHeader() {
 
             <div className="logoDiv">
                 <div className="mainLogo">
-                    <img src="/img/logo.png" alt="" />
-                    <p>Home Cake</p>
+                    <img src="/img/gold logo.png" alt="" />
+                    {/* <p>Home Cake</p> */}
                 </div>
-                <LinksDiv />
+                {/* <LinksDiv /> */}
                 <div className="infoDiv">
                     <p>HOME.CAKE.DP</p>
                     <p>IRA KUSH</p>

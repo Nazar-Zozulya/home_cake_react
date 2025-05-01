@@ -43,13 +43,13 @@
     font-style: normal;
     font-weight: 400;
     font-size: 28px;
-    color: #90444E;
-    text-shadow: 0px 0px 30px rgba(255, 135, 151, 0.8);
+    color: rgba(221, 198, 133, 1);
+    text-shadow: 0px 0px 30px rgba(221, 198, 133, 1);
 }
 
 .navigationButtons button p:hover{
-    color: #BB5F6B;
-    text-shadow: 0px 0px 30px rgba(255, 255, 255, 0.7);
+    color: rgb(236, 216, 161);
+    text-shadow: 0px 0px 35px rgba(255, 255, 255, 0.7);
 }
 
 
@@ -70,19 +70,18 @@
 }
 
 .mainLogo img{
-    width: 180px;
+    width: 500px;
 }
 
 .mainLogo p{
     box-sizing: border-box;
     position: relative;
-    margin-top: -55px;
-    font-family: 'Muthea';
-    font-style: normal;
-    font-weight: 400;
+    font-family: 'Mastering';
+    /* font-style: normal; */
+    /* font-weight: 800; */
     font-size: 96px;
     text-align: center;
-    color: #90444E;
+    color: rgba(221, 198, 133, 1);
     text-shadow: 0px 0px 30px rgba(144, 68, 78, 0.4);
 }
 
@@ -102,7 +101,7 @@
     display: flex;
     align-items: flex-end;
     text-align: center;
-    color: #90444E;
+    color: rgba(221, 198, 133, 1);
     text-shadow: 0px 0px 30px rgba(144, 68, 78, 0.4);
 }
 
